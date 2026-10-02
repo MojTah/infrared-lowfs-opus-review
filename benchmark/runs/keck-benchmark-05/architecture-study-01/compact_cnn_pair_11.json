@@ -1,0 +1,113 @@
+{
+  "architecture": "compact_cnn",
+  "seed": 11,
+  "parameter_count": 42516,
+  "best_validation_standardized_mse": 0.08595200240961276,
+  "epochs": 42,
+  "validation_history": [
+    0.17078943573869765,
+    0.1380567509913817,
+    0.12722885503899306,
+    0.11945312062744051,
+    0.10675594839267433,
+    0.1035211468115449,
+    0.10142041678773239,
+    0.10059404611820355,
+    0.09953705919906497,
+    0.10321266617393121,
+    0.10202646889956668,
+    0.09342929592821747,
+    0.09532897413009778,
+    0.09296451683621854,
+    0.09215258702170104,
+    0.09383601637091488,
+    0.08927731076255441,
+    0.09072441176977009,
+    0.08974775846581906,
+    0.09009694569977,
+    0.09124685445567593,
+    0.09143855178263038,
+    0.08941070246510208,
+    0.08943737437948585,
+    0.08921479783020914,
+    0.08708681270945817,
+    0.08798182086320594,
+    0.08937152085127309,
+    0.08700816705822945,
+    0.08652885002084076,
+    0.0875616908306256,
+    0.08595200240961276,
+    0.08717419242020696,
+    0.08869553415570408,
+    0.08662874170113355,
+    0.08693429629784077,
+    0.08703727275133133,
+    0.08766621875111014,
+    0.08770567236933857,
+    0.08803916582837701,
+    0.08656562748365104,
+    0.08702790224924684
+  ],
+  "elapsed_seconds": 29.625,
+  "design": "pair",
+  "calibration_half_width_nm": [
+    54.12615055427551,
+    60.6506218480922,
+    58.9940380649973,
+    80.74539725192327
+  ],
+  "checkpoint": "compact_cnn_pair_11.pt",
+  "identity": {
+    "schema_version": 1,
+    "sources": {
+      "ledger/analysis/architecture_study.py": "bcd799fb1ccba1a6526cad161660669f5b351b4c2cab0718b7aa9c4eef8d4ed6",
+      "ledger/analysis/architecture_models.py": "c7baabd19207a1d05354f7c4949debc37b5e3aab5b8b57aa7b49da3805947292",
+      "ledger/decisions/architecture-study-2026-10-02.md": "e1c6b42e8f7e920329fa6ae42cd5f26aa0c1ea7a01bf827323f9c7a3e73160be"
+    },
+    "baseline_frozen_sha256": "f2d02f1f79145a2014d4b785af840fd8bb7d1a6ad7bdd950b991f0f651f5b54d",
+    "dataset_manifest_sha256": "466ad879de627af7fa9529cb5390c22959c3bc57689e30341a662cc1dace3a8e",
+    "engine_source_hash": "648c0bd875c818ed1c06d246213c283b9a2448b194c0ce663b26176550a342cb",
+    "measurement_hash": "cf9178fcfc4a35605dce9a4104da7e8c7ab0b0a5e564fe05b8bd0d5383b5545e",
+    "basis_sha256": "bef87e0053177eb0c68d2cd28223d44d4b2c4357210be7bced0da4afbdafdc62",
+    "modal_order": [
+      "focus",
+      "astig_cos",
+      "astig_sin",
+      "spherical"
+    ],
+    "coefficient_unit": "nm OPD RMS",
+    "label_scale_nm": [
+      150.0,
+      100.0,
+      100.0,
+      100.0
+    ],
+    "architectures": [
+      "compact_cnn",
+      "resnet18"
+    ],
+    "designs": [
+      "single",
+      "pair"
+    ],
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "epochs_max": 100,
+    "stale_epochs": 10,
+    "batch_size": 128,
+    "optimizer": "Adam",
+    "learning_rate": 0.001,
+    "loss": "standardized four-mode MSE",
+    "torch_version": "2.11.0+cu128",
+    "torchvision_version": "0.26.0+cu128",
+    "cuda_build": "12.8",
+    "training_device": "cuda",
+    "selection": "minimum parent-weighted validation MSE, then lower seed; separately per architecture/design",
+    "interval_method": "empirical 95 percent parent-weighted absolute error; no formal coverage guarantee",
+    "scope": "post-baseline development; old held-out parents are not fresh confirmation"
+  },
+  "checkpoint_sha256": "6548cb4d86a148a0a45b5ae453058a3cea80bf4f09663d6cb8b036dc59e03b0f"
+}

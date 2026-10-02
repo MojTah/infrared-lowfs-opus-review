@@ -1,0 +1,7 @@
+{
+  "source": "design/fraunhofer.py",
+  "snapshot": "benchmark/reference.py",
+  "sha256": "217619a30972ab6a2df05b68c1d6994e11e984395343d145968265185fc98a0e",
+  "reason": "Freeze existing continuous-pupil reference without changing another writer uncommitted work",
+  "byte_identical": true
+}

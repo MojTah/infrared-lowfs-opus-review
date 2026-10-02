@@ -1,0 +1,658 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=25mm]{geometry}
+\setlength{\emergencystretch}{3em}
+\usepackage{amsmath,amssymb,booktabs,tabularx,microtype}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+\title{Calibration and domain shift in four-mode infrared focal-plane wavefront sensing}
+\author{Mojtaba Taheri}
+\date{Working draft 0.4 --- 2 October 2026}
+\newcommand{\nm}{\,\mathrm{nm}}
+\begin{document}
+\maketitle
+\noindent\textbf{Draft status.} Baseline results below are verified local computational
+results, including the bounded classical comparison, fresh detector challenges
+completed independent-engine validation, matched architecture controls and
+paired shift-factor diagnostics. Untouched confirmation remains unfinished.
+This document is not ready for submission. Affiliation, authorship contributions,
+funding, conflicts and venue-specific disclosures require author review.
+
+\begin{abstract}
+Fast inference alone does not establish reliable infrared low-order wavefront
+sensing. We study signed focus, two astigmatism components and spherical
+aberration in an integrated broadband, undersampled focal-plane benchmark.
+The experiment uses a published Keck pupil proxy and a filtered atmospheric
+residual surrogate, with independent atmospheric and calibration parents across
+training, tuning, interval calibration and evaluation. Frozen two-layer neural
+estimators have nominal four-mode wavefront errors of 60.38 and 63.05 nm for
+single and paired measurement designs, compared with 80.26 and 76.95 nm for
+ridge regression. A combined residual-spectrum, amplitude and diversity shift
+raises neural errors to approximately 106 nm; paired standardized-MSE contrasts
+with ridge become inconclusive. Empirical interval coverage also declines.
+On a smaller 10,000-electron subset, nonlinear physical fits improve nominal
+error at much greater computational cost, but physical refinement worsens
+shifted error. Matched ResNet18 controls reduce nominal errors to 53.68 and
+57.17 nm, at approximately nine times the MLP median inference cost, without
+a consistent shifted advantage. A twenty-parent paired factorial study
+identifies residual amplitude and spectrum as the dominant average degradation
+factors within its tested ranges. Diversity effects are smaller and uncertain
+for the neural estimators. These development results establish neither
+telescope performance nor superiority over the author's prior pipeline;
+independently seeded confirmation remains necessary.
+\end{abstract}
+
+\section{Motivation and relation to previous work}
+Low-order aberrations affect image position, focus and point-spread-function
+structure, limiting the stability needed for high-contrast observations.
+Measuring errors near the science focal plane reduces the separation between
+the sensed optical path and the path whose image quality matters. Phase
+retrieval and phase diversity encode aberration information through intensity
+and known optical changes \cite{fienup,paxman}. Photon statistics, detector
+sampling and calibration constrain the information available to any estimator
+\cite{guyon}. LIFT provides a linearized route to low-order estimation
+\cite{meimon,plantet2011,plantet2013}. Sequential techniques such as Fast \&
+Furious use an image history and control diversity \cite{korkiakoski,bos}.
+These measurement resources must be included when comparing estimators.
+Photon noise, sampling and chromatic effects constrain useful sensing
+performance independently of reconstruction speed \cite{guyon}.
+
+Infrared sensing is relevant for cool or dust-obscured targets that are faint
+in the visible but sufficiently bright in the infrared. Keck II's infrared
+pyramid demonstrates this motivation \cite{bond}. The benefit depends on target
+spectrum, throughput, detector properties and residual aberrations; infrared
+operation alone does not establish sensitivity or sky coverage for this benchmark.
+
+LOWFS includes distinct tasks: slow sodium-focus truth sensing, fast
+tip--tilt--focus control, non-common-path aberration calibration, and differential
+segment or petal phasing. Their information, cadence and validation requirements
+differ. The present experiment estimates static signed focus, two astigmatism
+components and spherical aberration from integrated images. It does not validate
+tip--tilt control, petal phasing or a telescope control loop.
+
+The closest infrared learned precedent is Taheri et al.\ \cite{taheri}, which
+uses ResNet18 with H-band simulations and K-band Keck internal calibration-source
+measurements. Those measurements are not atmospheric on-sky validation.
+The published cross-band focus comparison removes a mean offset, and therefore
+does not by itself establish absolute focus calibration.
+Salgueiro et al.\ \cite{salgueiro} subsequently selected Gerchberg--Saxton for
+2025 Keck slow-focus on-sky tests because of its residual robustness in their
+comparison. The paper describes further operational assessment as future work.
+Kuznetsov et al.\ \cite{kuznetsov} show that independent NCPA calibration can
+substantially improve LIFT focus estimation in VLT/MUSE-NFM tests. These studies
+make calibration and residual mismatch central comparison variables.
+
+Convolutional focal-plane reconstruction, engineered phase diversity and
+accelerated phase-diversity networks already have substantial precedent
+\cite{orban,quesnel,wu}. Residual networks supply a general architecture
+framework \cite{he}; they do not guarantee an advantage for undersampled
+infrared images. Learned reconstruction has also reached on-sky operation
+with an unmodulated pyramid \cite{landman}; preliminary learned infrared
+Lyot-based LOWFS has controlled differential piston on SCExAO \cite{singh}.
+These instruments encode phase through additional optics and receive different
+measurements from a direct focal-image estimator. They establish relevant
+precedent without a photon-equivalent algorithm ranking. Reconstruction timing
+must also be distinguished from exposure-to-actuation latency.
+
+The question here is whether additional spatial structure or
+physical refinement improves error, uncertainty and measured cost under a
+matched measurement and calibration protocol. The completed baseline is a
+development result. New methods selected after inspecting it require fresh,
+independently seeded confirmation.
+
+\section{Measurement and computational experiment}
+\subsection{Targets and pupil convention}
+The target vector is
+$\boldsymbol a=(a_f,a_{a_c},a_{a_s},a_s)$: focus, astigmatism cosine,
+astigmatism sine and spherical aberration. Coefficients are signed nm OPD RMS
+on a frozen pupil-weighted basis. Conventional polynomial seeds, after removal
+of their pupil means, are orthonormalized jointly with physical tip and tilt
+using a stored Cholesky transformation. The reference metric is normalized
+geometric illuminated area. Global piston is excluded. Four-mode error is
+distinct from the remaining high-order AO wavefront error.
+
+With normalized pupil modes $q_k$, known diversity $d_c$, calibrated static
+aberration $W_0$ and unknown disturbance $r$, the pupil field is proportional to
+\begin{equation}
+ A(\boldsymbol x)\exp\!\left[\frac{2\pi i}{\lambda}
+ \left(10^{-9}\sum_{k=1}^4 a_kq_k(\boldsymbol x)
+             +W_0(\boldsymbol x)+r(\boldsymbol x,t)+d_c(\boldsymbol x)\right)\right],
+\end{equation}
+where all OPD terms inside the brackets are in metres. Detector expectations
+integrate the propagated intensity over wavelength, detector pixel area and
+exposure time. Full-plane normalization is retained; the detector crop is not
+renormalized to unit flux. Inference receives count images and frozen
+calibration, with no target coefficients, centroid truth, atmospheric phase
+realization or per-parent calibration-error map.
+
+\subsection{Historical Keck proxy and acquisition}
+The optical generator uses HCIPy 0.7.1 \cite{por} and its published segmented
+Keck pupil, physically scaled to 10.949 m. The library's physical gap setting is
+used with geometric edge quadrature. This is a published pupil proxy, rather
+than an as-built Keck I/TRICK calibration. A 16$\times$16 region has 50 mas pixels;
+the detected-photon band is 1.5--1.8$\,\mu$m. Five wavelength nodes and
+six-point quadrature on each pixel axis are used at the admitted sampling.
+The 1024-square pupil, wavelength and pixel sampling were refined jointly
+before generation. These are modeled choices, not current observatory specifications.
+
+One measurement design uses a 10 ms exposure with 200 nm astigmatism diversity.
+The other uses two sequential 5 ms sub-exposures, first focused and then with
+200 nm focus diversity. Both have the same total source-electron budget
+$F\in\{10^3,10^4,10^5\}$. Each paired image receives half that budget and half
+the 5.01-electron background-plus-dark expectation per pixel, but incurs its
+own 5-electron RMS read contribution. Signed read-noise counts are retained.
+The two designs therefore share exposure time and total photons, while their
+temporal sampling, diversity and number of reads differ.
+
+\subsection{Residual and calibration model}
+Seven frozen-flow layers use the atmosphere parameters reported by
+Taheri et al.\ \cite{taheri}: $r_0=0.165$ m, $L_0=75$ m and the published layer
+heights, fractions and winds. The fractions sum to 0.97 and are explicitly
+renormalized. A 500 nm reference for $r_0$ is a modeling assumption. A 128-square
+atmospheric grid is interpolated to the optical pupil. The declared spatial
+residual amplitude filter is
+\begin{equation}
+ H(k)=\frac{k^2}{k^2+k_c^2}.
+\end{equation}
+Independent developer sequences set global gains for 100/200 nm nominal residual
+levels. Piston, tilt and all four target modes are projected out of the
+disturbance. Sequence and frame fluctuations remain; frames are not individually
+RMS-normalized. The same parent supplies twenty consecutive 10 ms acquisitions.
+Targets remain constant within an acquisition and vary across acquisitions;
+this does not model a realistic closed-loop target time series.
+Each acquisition has independent uniform coefficient draws: focus over
+$[-150,150]$ nm and each of the other three modes over $[-100,100]$ nm.
+Nominal parents are allocated equally to the 100 and 200 nm residual levels.
+
+The inference calibration includes a 50 nm static high-order pattern. Each parent
+also has an independently seeded unknown high-order calibration error with RMS
+drawn up to 20 nm. Centroids vary within $\pm20$ mas per axis. The shifted evaluation
+combines a 300 nm residual level, a cutoff change from $10/D$ to $6/D$, and 10\% excess
+diversity. This combined shift cannot identify which component causes the
+observed degradation. The residual is a filtered surrogate with no measured
+WFS/DM controller, telemetry or scintillation.
+
+\subsection{Grouped data and frozen estimators}
+There are 620 independent atmospheric/calibration parents: 300 training,
+60 validation, 60 interval-calibration, 100 nominal evaluation and 100 shifted
+evaluation. Twenty acquisitions and three flux replicas per parent produce
+12,400 physical acquisitions and 37,200 rows per design. The 18,000 training rows
+represent 300 independent parents. Replicas and both measurement designs remain
+within the same parent split.
+
+Each design has a separate MLP with two 32-unit ReLU hidden layers and four
+outputs: 9,412 single-image or 17,604 paired-image parameters. The features are
+\begin{equation}
+ z_j=\frac{\operatorname{asinh}(y_j/100)-\mu_j}{\sigma_j},
+\end{equation}
+with means and scales fitted on training parents alone. Outputs are scaled by
+$(150,100,100,100)$ nm. Training uses Adam \cite{adam} at learning rate 0.001,
+batch 128, standardized coefficient MSE, a 100 epoch maximum and ten stale
+validation epochs. Seeds 11, 23, 37 are trained separately. Parent-weighted
+validation loss selects seed 11 for single images and 37 for pairs. Ridge
+regularization is selected on the same validation set. All model and
+preprocessing artifacts are checksummed and frozen before evaluation.
+
+Independent calibration parents define per-mode empirical 95\% absolute-error
+quantiles with equal parent weights. These are marginal empirical intervals,
+not joint intervals or a finite-sample coverage guarantee. No evaluation
+outcome changes their widths in the frozen baseline.
+
+The matched architecture extension uses the same features, label scaling,
+splits, Adam settings, batch size, maximum epochs, patience and three seeds.
+A compact CNN has a 16-channel convolutional stem, two 16-channel residual
+blocks separated by $2\times$ average pooling, and a 32-unit output head:
+42,372/42,516 single/pair parameters. ResNet18 has a $3\times3$ stride-one
+one/two-channel stem, no initial max-pooling and a four-output head:
+11,169,732/11,170,308 parameters. Neither resizes pixels or downloads weights.
+Validation selects CNN seeds 37/11 and ResNet18 seeds 11/11 for single/pair.
+Each model's widths use the original independent calibration split.
+This is a documented adaptation, not an exact reproduction of the 2024 pipeline.
+
+\subsection{Metrics and uncertainty}
+For $P$ parents, four-mode reconstructed error is
+\begin{equation}
+ R=\left[\frac1 P\sum_{p=1}^P\frac1{n_p}
+                \sum_{i=1}^{n_p}\|\widehat{\boldsymbol a}_{pi}-\boldsymbol a_{pi}\|_2^2
+          \right]^{1/2}.
+\end{equation}
+Parent means, rather than rows treated as independent, also define coefficient
+bias, marginal coverage and paired standardized-MSE contrasts. Reported
+standardized MSE is
+\begin{equation}
+ S=\frac1P\sum_{p=1}^P\frac1{n_p}\sum_{i=1}^{n_p}
+       \frac14\sum_{k=1}^4\left(\frac{\widehat a_{pik}-a_{pik}}{s_k}\right)^2,
+ \qquad \boldsymbol s=(150,100,100,100)\ \mathrm{nm}.
+\end{equation}
+This weights modes differently from $R$; a paired confidence interval for
+an $S$ contrast does not directly test an unscaled wavefront-RMSE improvement.
+For aggregate three-flux results $n_p=60$; for one flux $n_p=20$.
+Percentile intervals resample the analysis's parents with replacement for
+1,000 draws: 100 per native baseline evaluation split, ten per classical
+condition, twenty per detector-challenge condition, 100 per architecture
+evaluation split and twenty paired diagnostic parents.
+They condition on the frozen fitted models and do not include training-set or
+model-selection uncertainty. Flux-specific errors use equal parent weights
+within each flux; the equal-third flux aggregate averages squared errors before
+taking the square root.
+
+Warmed latency measurements use 1,000 batch-one calls after ten warm-up calls.
+CUDA synchronization brackets each call. Preprocessing, device transfer,
+inference and output transfer are included; acquisition, detector readout,
+diversity switching and controller/actuator latency are excluded.
+
+\section{Verified baseline results}
+\begin{table}[ht]
+\centering\small
+\caption{Four-mode error in nm OPD RMS. Parent-bootstrap intervals condition on
+the frozen models. Each evaluation split contains 100 parents.}
+\begin{tabular}{@{}llrrr@{}}
+\toprule
+Condition&Design&MLP&MLP 95\% interval&Ridge\\
+\midrule
+Nominal&Single&60.38&58.80--61.98&80.26\\
+Nominal&Pair&63.05&61.84--64.19&76.95\\
+Shifted&Single&106.85&105.12--108.48&109.04\\
+Shifted&Pair&106.10&104.43--107.62&107.66\\
+\bottomrule
+\end{tabular}
+\label{tab:baseline}
+\end{table}
+
+Nominal paired MLP-minus-ridge standardized-MSE intervals are
+$[-0.05389,-0.04914]$ for single images and $[-0.03908,-0.03532]$ for pairs.
+Both favor the MLP in standardized MSE on this admitted nominal population. The shifted intervals,
+$[-0.00329,0.00404]$ and $[-0.00320,0.00553]$, include zero. These intervals do
+not establish a clear advantage under the combined shift.
+
+Nominal single/pair MLP errors at 1,000 electrons are 81.14/93.15 nm;
+at 10,000 electrons they are 47.67/45.43 nm; at 100,000 electrons they are 45.61/34.41 nm.
+An aggregate ordering therefore does not describe every flux regime. In
+particular, the paired design's brighter-flux accuracy must be weighed against
+its additional read contribution and different temporal encoding.
+
+\begin{table}[ht]
+\centering\small
+\caption{Empirical marginal interval coverage; mode order is focus,
+astigmatism cosine, astigmatism sine, spherical. Widths remain frozen.}
+\begin{tabular}{@{}llrrrr@{}}
+\toprule
+Condition&Design&Focus&Astig.cos&Astig.sin&Spherical\\
+\midrule
+Nominal&Single&94.40\%&95.68\%&95.40\%&95.45\%\\
+Nominal&Pair&94.97\%&95.35\%&95.05\%&94.12\%\\
+Shifted&Single&66.33\%&75.75\%&75.77\%&82.42\%\\
+Shifted&Pair&76.05\%&80.60\%&82.98\%&81.38\%\\
+\bottomrule
+\end{tabular}
+\label{tab:coverage}
+\end{table}
+
+No nonfinite baseline prediction occurred. This does not imply that every
+estimate is scientifically accurate. The faint nominal regime also loses
+coverage: approximately 86.7--90.4\% for single images and 83.9--86.3\% for pairs.
+Calibration over a flux mixture does not guarantee nominal coverage at every flux.
+
+Nominal single/pair MLP CUDA latency medians on an NVIDIA GeForce RTX 4060 Laptop GPU are 0.341/0.573 ms, with 95th
+percentiles 0.848/1.140 ms and 99th percentiles 1.216/2.792 ms. CPU ridge medians
+are 0.0118/0.0155 ms. These are hardware-specific implementation measurements;
+they do not show that a neural network is required for fast reconstruction.
+The frozen six-network training completed in 202.344 s. A supervisor metadata
+failure prevented final training CPU/peak-memory recording; a conservative
+5,041 CPU-second charge was retained instead of refitting the models.
+
+\section{Bounded classical comparison}
+The five-method comparison uses identical 10,000-electron observations from
+ten nominal and ten shifted parents, one acquisition per parent. These are
+subsets of the existing evaluation data. They support development comparisons,
+rather than fresh confirmation of a subsequently chosen method.
+
+\begin{table}[ht]
+\centering\small
+\caption{Four-mode error in nm for the bounded classical subset. All 200 planned
+estimates are finite; no time or memory cap occurred. Each cell has ten parents.
+These point errors do not by themselves establish a significant ordering.
+Final statuses are OK; one selected coarse capture reached its iteration cap
+before successful final refinement.}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Method&Nominal single&Nominal pair&Shifted single&Shifted pair\\
+\midrule
+MLP&59.09&65.93&73.93&82.99\\
+Ridge&76.36&79.13&90.67&93.45\\
+LiFT-style&28.12&80.39&133.92&193.05\\
+Physical multistart&22.68&21.88&107.14&153.13\\
+MLP plus two updates&49.61&45.73&103.34&150.21\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The calibrated LiFT-style iterative Jacobian fit uses up to five updates and
+is not an exact upstream LIFT reproduction. The physical multistart fit uses
+three initializations on a 512-square coarse pupil, then refines its best
+candidate on the 1024-square pupil with one initialization. Each fit has a
+30-function-evaluation cap per initialization. The hybrid uses exactly two physical updates from
+the MLP estimate. Every planned observation remains in the denominator;
+missing estimates receive a declared penalty of twice each target limit,
+with conditional available-estimate errors reported separately.
+The selected coarse fit for shifted parent0000 in the single-image design
+reached its 30-evaluation cap, while final refinement returned OK. Reported
+top-level cap fractions concern final estimates; this nested event is retained
+separately. Statuses of discarded coarse starts were not saved.
+
+Nominal single-image LiFT-style and multistart fits have lower standardized
+MSE than the MLP: paired parent-bootstrap 95\% contrast intervals are
+$[-0.1154,-0.0230]$ and $[-0.1235,-0.0249]$, respectively.
+For nominal pairs, the hybrid and multistart intervals are
+$[-0.0901,-0.0198]$ and $[-0.1511,-0.0381]$.
+Under the combined shift, each physical method has a positive standardized-MSE
+contrast interval relative to the MLP in both designs. The physical updates
+therefore do not provide a general robustness improvement on this subset.
+
+Observed median call times are approximately 8.7/17.3 s for single/pair
+LiFT-style fits, 53.2/99.1 s for multistart and 3.5/6.9 s for the hybrid.
+The physical fits use CPU propagation; the hybrid combines a CUDA MLP call
+with CPU physical updates.
+These implementation timings are from ten calls per condition, interleaved
+with other methods. They are not comparable to the separate 1,000-call warmed
+tail-latency measurement without this sampling qualification, and do not
+establish the best achievable runtime of a physical solver.
+
+\section{Fresh detector and optical challenges}
+Twenty independently seeded parents each provide one 10,000-electron acquisition
+in nine conditions. Residual amplitude alternates between the nominal 100 and
+200 nm tiers. Conditions share each parent's target, centroid, atmospheric
+exposure and unknown high-order calibration map; their detector noise draws
+are independent. Frozen MLP and ridge estimators receive the same images in
+each design and retain their nominal inference calibration. There are 720
+planned estimates: 640 finite estimates and 80 expected nonfinite-input rejections,
+with no time or memory cap.
+
+\begin{table}[ht]
+\centering\small
+\caption{Four-mode error in nm for fresh challenges. Each finite cell has twenty
+parents. These are point estimates, rather than tests of differences between
+conditions. The bad-pixel condition has no estimate for any parent or method;
+all twenty planned observations per cell remain in failure denominators.}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Condition&MLP single&MLP pair&Ridge single&Ridge pair\\
+\midrule
+Nominal&50.37&48.23&63.00&61.82\\
+10-electron read noise&57.78&62.31&63.10&61.47\\
+Interpixel coupling&51.59&44.32&64.78&58.88\\
+2,000-electron clipping&49.53&47.06&62.33&56.52\\
+1.1 diversity multiplier&41.97&52.82&57.96&70.16\\
+1.02 pixel-scale multiplier&50.14&46.07&61.71&59.72\\
+0.01$D$ pupil registration&49.63&50.59&61.15&65.27\\
+20 nm extra calibration error&53.03&55.49&64.13&63.65\\
+Nonfinite bad pixel&---&---&---&---\\
+\bottomrule
+\end{tabular}
+\label{tab:challenges}
+\end{table}
+
+The coupling kernel redistributes two percent of charge to each of four
+neighbors before read noise; influx from outside the crop is omitted.
+Clipping is a 2,000-electron ceiling on the noisy count image, not a calibrated
+physical detector saturation model. Pupil displacement is $0.01D$ along one
+axis. The extra calibration pattern has 20 nm projected high-order RMS in
+addition to each parent's nominal unknown map. A nonfinite pixel at index
+$(3,9)$ invokes the common acquisition guard; no reconstruction or interpolation
+is attempted. This tests rejection behavior, not bad-pixel tolerance.
+These limited challenges do not certify a characterized detector or establish
+robustness to general combinations of errors.
+
+\section{Independent simulator validation and remaining gates}
+The admitted native physics checks include signed noiseless recovery,
+independent direct propagation, joint pupil/pixel/wavelength refinement,
+disturbed exposure refinement and detector count moments. Maximum noiseless
+coefficient RMSE is 0.134 nm; admitted joint sampling differences are below
+relative image $L_1<10^{-3}$. These checks establish numerical behavior for the
+specified forward model, not telescope calibration fidelity.
+
+Full OOPAO validation completed with 100 independent nominal parents, five
+physical acquisitions per parent and native exit status zero. The adapter pins source revision
+\texttt{e8e9aa60cf99f4ab21a4dae7c29aae9b9ec6ec87}; native propagation and
+independently evolved atmospheric screens differ from HCIPy. Pupil/basis,
+bandpass, pixel quadrature and detector statistics remain shared experimental
+inputs. All seven identical-input optical cases passed, with maximum relative
+image $L_1=1.08\times10^{-6}$ and padding-refinement difference
+$1.06\times10^{-6}$. Developer radial-PSD $L_1=0.00724$ and lag-one-correlation
+difference $0.000918$ passed the declared practical thresholds of 0.35 and 0.05.
+These checks do not prove identical stochastic processes or a realistic
+telescope controller. The independent simulator has its own fixed developer
+gain; no test-based normalization or refitting was used.
+
+The 500 OOPAO acquisitions contain 200, 200 and 100 observations at 1,000,
+10,000 and 100,000 electrons. Direct aggregate comparisons would mix fluxes
+differently from the original equal-third benchmark. With equal parent weights
+within each flux and one-third flux weights, frozen MLP single/pair RMSE is
+61.57/63.44 nm and ridge RMSE is 81.38/78.22 nm. MLP errors at the three fluxes
+are 84.18/46.67/45.91 nm for single images and 92.12/48.40/35.27 nm for pairs.
+No nonfinite prediction occurred. These point summaries support nominal
+cross-simulator consistency; they do not quantify an uncomputed paired
+contrast or establish robustness under the combined physical shift.
+The complete run used 6,698 wall seconds, 6,874.5 charged CPU seconds and
+7.16 GiB sampled peak working set on the stated host.
+
+\section{Matched architecture development comparison}
+All twelve CNN/ResNet18 fits completed with native exit status zero and frozen
+checkpoint, validation-selection and calibration identities. Native admission
+included actual CUDA profiles, bitwise checkpoint round trips and separate
+interruption/resume. Scientific fitting took 1,804s wall; the full initial-fitting
+envelope, including baseline and admission, used 2,078s of its 7,200s ceiling.
+The old nominal/shifted test sets are development evidence for this extension.
+
+\begin{table}[ht]
+\centering\small
+\caption{Validation-selected architecture controls. Four-mode nm OPD RMS,
+equal parent and one-third flux weights. OOPAO tests nominal conditions only.}
+\begin{tabular}{@{}lrrrrrr@{}}
+\toprule
+&\multicolumn{2}{c}{Original nominal}&\multicolumn{2}{c}{Original shifted}&\multicolumn{2}{c}{OOPAO}\\
+Method&Single&Pair&Single&Pair&Single&Pair\\
+\midrule
+MLP&60.38&63.05&106.85&106.10&61.57&63.44\\
+Ridge&80.26&76.95&109.04&107.66&81.38&78.22\\
+Compact CNN&58.52&61.20&108.17&106.24&58.29&62.27\\
+ResNet18&53.68&57.17&106.01&107.19&53.74&58.19\\
+\bottomrule
+\end{tabular}
+\label{tab:architectures}
+\end{table}
+
+Nominal candidate-minus-MLP conditional 95\% paired wavefront-RMSE intervals
+favor CNN: single $[-2.46,-1.27]$ nm, pair $[-2.36,-1.36]$ nm; and ResNet18:
+single $[-7.35,-6.11]$ nm, pair $[-6.54,-5.19]$ nm. Standardized-MSE contrasts
+also favor both families. Independent OOPAO point results show the same
+nominal ordering, without establishing telescope transfer.
+
+Shifted contrasts are mixed. For paired images, CNN improves standardized MSE:
+its conditional 95\% interval is $[-0.00958,-0.00139]$. The wavefront contrast
+is inconclusive, with interval $[-0.78,1.04]$ nm. ResNet18 pair wavefront RMSE
+worsens by 1.09 nm, with interval $[0.18,2.13]$ nm, while its standardized-MSE
+interval includes zero. Its single-image wavefront contrast is also
+inconclusive. Increasing capacity therefore does not establish robustness
+under the combined shift.
+
+Table~\ref{tab:architecture-latency} reports the same warmed 1,000-call
+batch-one protocol across methods. The nominal ResNet18 improvement
+costs approximately nine times the MLP median inference latency on this host.
+These figures exclude acquisition and control and differ from the earlier
+baseline timing invocation; the present comparisons share one measurement protocol.
+
+\begin{table}[ht]
+\centering\small
+\caption{Inference latency in ms on the stated host. Includes preprocessing,
+device transfers and synchronization; excludes acquisition and controller.}
+\begin{tabular}{@{}lrrrr@{}}
+\toprule
+Method&Single median&Single p95&Single p99&Pair median\\
+\midrule
+MLP&0.423&0.623&0.815&0.441\\
+Ridge&0.0144&0.0153&0.0213&0.0201\\
+Compact CNN&1.012&1.304&2.001&1.021\\
+ResNet18&3.871&5.238&7.177&3.928\\
+\bottomrule
+\end{tabular}
+\label{tab:architecture-latency}
+\end{table}
+
+\section{Paired residual and diversity diagnostics}
+Twenty new development parents cross residual amplitude 200/300nm, spectral
+cutoff$10/D$/$6/D$ and diversity multiplier1.0/1.1: eight cells per parent.
+Targets, centroid, raw atmospheric seed and unknown high-order calibration map
+are shared across cells. Spectrum branches use their fixed independent developer
+gains; no test-parent or per-frame normalization occurs. Detector draws differ
+by cell. All three flux replicas, both designs and four frozen methods give
+160 condition-specific acquisitions,480 rows per design and3,840 finite estimates.
+The source-matched native/GPU canary passed four image checks, maximum relative
+$L_1=7.36\times10^{-17}$. Full diagnostics ended native exit zero in 281s wall.
+
+The three-factor contrasts use $-1/+1$ coding. Reported effects are twice the
+orthogonal regression coefficients; a main effect is the average high-minus-low
+error across the other factors. Wavefront effects average the eight cell RMSEs,
+and are distinct from the standardized-MSE contrasts. Parent bootstraps preserve
+all eight cells and flux pairing; marginal 95\% intervals are exploratory and
+unadjusted across methods, designs and main/interaction effects.
+
+\begin{table}[ht]
+\centering\small
+\caption{Diagnostic wavefront-RMSE main effects in nm. Values show single/pair;
+positive effects indicate degradation. Twenty independent paired parents.}
+\begin{tabular}{@{}lrrr@{}}
+\toprule
+Method&Amplitude200$\to$300&Cutoff10$\to$6&Diversity1.0$\to$1.1\\
+\midrule
+MLP&27.68/24.74&16.36/12.01&$-0.62$/1.18\\
+Compact CNN&27.04/25.73&17.10/10.61&$-0.35$/3.46\\
+ResNet18&27.43/27.22&16.46/9.98&1.69/0.77\\
+Ridge&17.94/15.19&9.80/7.06&$-2.74$/0.94\\
+\bottomrule
+\end{tabular}
+\label{tab:factors}
+\end{table}
+
+Amplitude and spectrum effects are positive for every tested method/design
+with exploratory intervals excluding zero. For MLP single images the intervals
+are 22.19--33.02nm and10.89--21.56nm respectively; for pairs 20.10--29.72nm and
+8.63--15.46nm. All neural diversity main-effect intervals include zero.
+Several interactions remain visible, so main effects do not imply that diversity
+is universally negligible or that effects simply add in every condition.
+The unknown calibration map was held fixed rather than varied as a separate
+factor; this study does not isolate calibration-error contributions or establish
+a general physical mechanism outside the tested ranges.
+
+The prospective continuation is to freeze validation-based method choices,
+then test 100 untouched paired nominal/shifted parents in a separate seed
+namespace. Four primary standardized-MSE contrasts would use 9,999 joint
+parent-bootstrap draws and 98.75\% marginal intervals, an approximate Bonferroni
+allocation conditional on fixed models/calibration. A bounded two-update
+physical comparison would use the first 20 parents at 10,000 electrons. No such
+confirmation or physical follow-on has run, and native admission remains required.
+
+\section{Interpretation and evidence limits}
+The present baseline supports a restricted result: a small trained estimator
+has lower nominal point wavefront error and standardized MSE than the chosen
+ridge control at sub-ms median inference cost. Physical fitting can further
+reduce nominal error on the smaller subset at much greater computational cost.
+A combined physical shift erodes the neural advantage over ridge on the full
+population and worsens the tested physical-refinement errors. Increasing model
+capacity improves nominal errors but has not resolved shifted behavior. The paired
+diagnostics identify amplitude and spectrum changes as the largest average
+effects within the specified ranges. Training that covers these nuisance
+distributions is a motivated future experiment, not an established remedy.
+Any training change requires independent parents, fixed calibration and
+untouched evaluation; reusing inspected development outcomes cannot confirm it.
+
+The simulations omit a measured telescope controller, telemetry-derived
+residuals, scintillation, detector characterization and bench/sky reference
+coefficients. The current experiment concerns four global modes; differential
+segment/petal piston and fast tip--tilt--focus control require separate
+measurement and dynamics studies. No current facility readiness, sky coverage,
+closed-loop stability, exact prior-method superiority or publication novelty
+claim follows from these results.
+
+\section*{Reproducibility and drafting provenance}
+\begin{sloppypar}
+The local pipeline preserves source/configuration/runtime identities, basis
+transforms, parent allocation, shard and model checksums, admission records,
+latency reports, failures and cumulative-resource charges. The authoritative
+baseline reports are \path|evaluation.json| and
+\path|flux-evaluation.json| under the preserved local run
+\path|keck-benchmark-05|. Dataset and model
+release have not been performed. The current source uses Python 3.11.15,
+HCIPy 0.7.1 and Torch 2.11.0+cu128 in the pinned project environment.
+Codex assisted computational development, evidence integration and draft
+preparation. Mojtaba's scientific review remains required; journal-specific
+disclosure wording must be checked before any external submission.
+\end{sloppypar}
+
+\begin{thebibliography}{99}\small
+\bibitem{fienup} J. R. Fienup (1982). Phase retrieval algorithms: a comparison.
+\emph{Applied Optics} 21, 2758--2769. \href{https://doi.org/10.1364/AO.21.002758}{doi:10.1364/AO.21.002758}.
+\bibitem{paxman} R. G. Paxman, T. J. Schulz and J. R. Fienup (1992). Joint estimation
+of object and aberrations by using phase diversity. \emph{JOSA A} 9, 1072--1085.
+\href{https://doi.org/10.1364/JOSAA.9.001072}{doi:10.1364/JOSAA.9.001072}.
+\bibitem{meimon} S. Meimon, T. Fusco and L. M. Mugnier (2010). LIFT: a focal-plane
+wavefront sensor for real-time low-order sensing on faint sources.
+\emph{Optics Letters} 35, 3036--3038. \href{https://doi.org/10.1364/OL.35.003036}{doi:10.1364/OL.35.003036}.
+\bibitem{plantet2011} C. Plantet, S. Meimon, T. Fusco and J. Conan (2011).
+Experimental validation of the linearized focal-plane technique (LIFT).
+\href{https://ao4elt2.lesia.obspm.fr/sites/ao4elt2/IMG/pdf/113meimon.pdf}{AO4ELT2 proceedings}.
+\bibitem{plantet2013} C. Plantet, S. Meimon, J. Conan and T. Fusco (2013).
+Experimental validation of LIFT for estimation of low-order modes in low-flux
+wavefront sensing. \emph{Optics Express} 21, 16337--16352.
+\href{https://doi.org/10.1364/OE.21.016337}{doi:10.1364/OE.21.016337}.
+\bibitem{korkiakoski} V. Korkiakoski et al.\ (2014). Fast \& Furious focal-plane
+wavefront sensing. \emph{Applied Optics} 53, 4565.
+\href{https://arxiv.org/abs/1406.1006}{arXiv:1406.1006}.
+\bibitem{bos} S. P. Bos et al.\ (2021). ``Fast'' and Furious focal-plane wavefront
+sensing at W. M. Keck Observatory. Conference preprint.
+\href{https://arxiv.org/abs/2107.07601}{arXiv:2107.07601}.
+\bibitem{guyon} O. Guyon (2005). Limits of Adaptive Optics for high contrast imaging.
+\emph{ApJ} 629, 592--614. \href{https://arxiv.org/abs/astro-ph/0505086}{arXiv:astro-ph/0505086}.
+\bibitem{taheri} Mojtaba Taheri, M. Molahasani, S. Ragland, B. Neichel and
+P. Wizinowich (2024). AI-Powered Low-Order Focal Plane Wavefront Sensing in
+Infrared. \emph{SPIE} 13097, 1309783.
+\href{https://arxiv.org/html/2410.12084v1}{arXiv:2410.12084}.
+\bibitem{salgueiro} R. M. Salgueiro et al.\ (2026). Slow focus sensor for the Keck I
+laser guide star adaptive optics system using focal plane wavefront sensing.
+\href{https://arxiv.org/html/2602.15746v1}{arXiv:2602.15746}.
+\bibitem{kuznetsov} A. Kuznetsov, S. Oberti, B. Neichel and T. Fusco (2024).
+Striving towards robust phase diversity on-sky: Implementing LIFT for
+VLT/MUSE-NFM. \emph{A\&A} 687, A221.
+\href{https://arxiv.org/abs/2406.08529}{arXiv:2406.08529}.
+\bibitem{orban} G. Orban de Xivry et al.\ (2021). Focal plane wavefront sensing
+using machine learning: performance of convolutional neural networks compared
+to fundamental limits. \emph{MNRAS} 505, 5702--5713.
+\href{https://arxiv.org/abs/2106.04456}{arXiv:2106.04456}.
+\bibitem{quesnel} M. Quesnel, G. Orban de Xivry, G. Louppe and O. Absil (2022).
+A deep learning approach for focal-plane wavefront sensing using vortex phase
+diversity. \href{https://arxiv.org/abs/2210.00632}{arXiv:2210.00632}.
+\bibitem{wu} Y. Wu, Y. Guo, H. Bao and C. Rao (2020). Sub-Millisecond Phase
+Retrieval for Phase-Diversity Wavefront Sensor. \emph{Sensors} 20, 4877.
+\href{https://doi.org/10.3390/s20174877}{doi:10.3390/s20174877}.
+\bibitem{por} E. H. Por, S. Y. Haffert, V. M. Radhakrishnan, D. S. Doelman,
+M. van Kooten and S. P. Bos (2018). High Contrast Imaging for Python (HCIPy):
+an open-source adaptive optics and coronagraph simulator. \emph{SPIE} 10703.
+\href{https://ehpor.github.io/assets/pdf/Por-2018-HCIPy.pdf}{Author manuscript}.
+\bibitem{he} K. He, X. Zhang, S. Ren and J. Sun (2016). Deep Residual Learning for
+Image Recognition. \emph{CVPR}.
+\href{https://arxiv.org/abs/1512.03385}{arXiv:1512.03385}.
+\bibitem{adam} D. P. Kingma and J. Ba (2015). Adam: A Method for Stochastic
+Optimization. \emph{ICLR}.
+\href{https://arxiv.org/abs/1412.6980}{arXiv:1412.6980}.
+\bibitem{bond} C. Z. Bond et al.\ (2020). Adaptive optics with an infrared
+pyramid wavefront sensor at Keck. \emph{JATIS} 6, 039003.
+\href{https://doi.org/10.1117/1.JATIS.6.3.039003}{doi:10.1117/1.JATIS.6.3.039003}.
+\bibitem{landman} R. Landman et al.\ (2025). Making the unmodulated pyramid
+wavefront sensor smart II. First on-sky demonstration of extreme adaptive
+optics with deep learning. \emph{A\&A} 696, L1.
+\href{https://arxiv.org/html/2503.16690v1}{arXiv:2503.16690}.
+\bibitem{singh} G. Singh et al.\ (2026). Addressing the low-wind effect with the
+Lyot-based low-order wavefront sensor on SCExAO. Preprint.
+\href{https://arxiv.org/html/2609.00737v1}{arXiv:2609.00737}.
+\end{thebibliography}
+\end{document}

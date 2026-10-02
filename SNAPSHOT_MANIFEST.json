@@ -1,0 +1,588 @@
+{
+  "created_utc": "2026-10-02T09:41:35.431227+00:00",
+  "source_head": "6f838fa421e85a44c7e2b1ac9878c530f994ebfb",
+  "source_branch": "codex/psf-four-mode-benchmark",
+  "source_state": "current selected working files; source has unrelated uncommitted files; this is not a complete clone or release",
+  "files": [
+    {
+      "path": "benchmark/__init__.py",
+      "bytes": 75,
+      "sha256": "b9d01153bc95671cc8be45043fbf8398ec872ed649d35949d1bffbc747b0126b",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/__main__.py",
+      "bytes": 48,
+      "sha256": "935a1c1166b0c1ea35a82256345000bf2c73ded718d77773bc27a71ecce28f7d",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/cli.py",
+      "bytes": 31651,
+      "sha256": "5668cc02f25ec48c92522c8e1017149f720bcfd38c568fa4627340d323621a4f",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/comparisons.py",
+      "bytes": 21873,
+      "sha256": "65ebf1778d420962f8e38d68d822e7cc5b2d6b646474517be3bcac6f183f32ae",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/core.py",
+      "bytes": 26514,
+      "sha256": "b4b76c75b41a43f5a8f69a8f92ab0cdaa11ef8df6b47c144060c4f2261ba6dbb",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/cross_validate.py",
+      "bytes": 37049,
+      "sha256": "ec4dd5a063a7edb3b074e3607d145b3a9c01212711434ce8730a9e1cc21e0183",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/hardware.py",
+      "bytes": 5164,
+      "sha256": "47d7da9c30fad57beaff109b1511b8e3e4a8efec77c8a2a8680c5ad49ee0bf74",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/IMPLEMENTATION.md",
+      "bytes": 3826,
+      "sha256": "b1176e085f0bb7104c5ccb58dd54c7ce0526e377ea11673c5ce22e3be2126983",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/large_telescopes.py",
+      "bytes": 18962,
+      "sha256": "3e6bde8e6db8bfde4c3cb6f2e79af851c19fad1ce763906fd5de38177f1fefea",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/learning.py",
+      "bytes": 26574,
+      "sha256": "b08c5352f8833167f71df1d4432329c7038525c68fd69712a276d404b4e09ca5",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/OOPAO_VALIDATION.md",
+      "bytes": 8393,
+      "sha256": "0476d29eb540228af4a89eb05063c1339a514b4caa74e9afa0d7734f179b345a",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/README.md",
+      "bytes": 11460,
+      "sha256": "d2e5ed9fba4564dcb2fc1c3ddfab1217b27667a0ad8a11da2f19fd7c4cdc1f58",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/reference-provenance.json",
+      "bytes": 297,
+      "sha256": "fa1fad5cc6b9f0360d8c6537720471614820166f9bf963d127f8aa27bf686034",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/reference.py",
+      "bytes": 3066,
+      "sha256": "217619a30972ab6a2df05b68c1d6994e11e984395343d145968265185fc98a0e",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/requirements.in",
+      "bytes": 54,
+      "sha256": "4c712fcf1a4e2b71278ca8a298cdde164dbd3da4885d77daf8f32209060ff200",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/requirements.lock.txt",
+      "bytes": 1499,
+      "sha256": "b33af64655fafc9fa61ef7492a50f5448eac66462a76f8fb4dc112c00deea0c1",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/RESULTS.md",
+      "bytes": 11525,
+      "sha256": "8e0ebad1af0df3555cdf624f72b5a2fc2d99e129ceda20413f03d6df039efdd7",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/admission.json",
+      "bytes": 3848,
+      "sha256": "38c302cdf7c22d6154a2b5411b226e56ba510f1d24331ff0eb990a6dd921f4c0",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/compact_cnn_pair_11.json",
+      "bytes": 3550,
+      "sha256": "35d46a54b3b7122dd61098717c08d87d8a643cfe0618892505c6d65ba98fe61e",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/compact_cnn_pair_23.json",
+      "bytes": 3597,
+      "sha256": "f3a89bd57a154558beac8943e754b50254500d5537e218654c73d31f26ca3b58",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/compact_cnn_pair_37.json",
+      "bytes": 3642,
+      "sha256": "c2428cab729bcf05fce74eb0f2a4ce16516a4cfd82eebf006d4cc55f6adefbb6",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/compact_cnn_single_11.json",
+      "bytes": 3452,
+      "sha256": "1be5d81f7a0742ae798a9bd39f774ec8595cf86c5396b2104ff5b4bcd1c5deeb",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/compact_cnn_single_23.json",
+      "bytes": 3489,
+      "sha256": "a803c03b01c673b573545c869a4a50b9b311c0e339005f2f64c9a943cf47613e",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/compact_cnn_single_37.json",
+      "bytes": 3771,
+      "sha256": "8ba212f898e6ba94ee788fbf869232bb4ecad7f11bda7d77d068dadc0b1608f5",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/evaluation.json",
+      "bytes": 423428,
+      "sha256": "14996ede9829dd8b2ff025b74f04714e918d8df961e999f5933230bf96954f55",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/frozen.json",
+      "bytes": 74922,
+      "sha256": "2f1bc2e198a178caeddaff5b045e77bae0ef8be43ece0323b4dba3a7003134a3",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/oopao-evaluation.json",
+      "bytes": 212458,
+      "sha256": "2ba68def4aa76233a91105ce520d60a96dea724df63a8e455fabb32880e089a1",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/protocol.json",
+      "bytes": 1836,
+      "sha256": "712a21769569693eda7dd6704c44820407275ae7916532ca8cbe3dfb1cd94dcd",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/resnet18_pair_11.json",
+      "bytes": 4694,
+      "sha256": "5a7bff08505f4758d77a88db6322a39455a67b35c6b546c4e8c3e01686b144bd",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/resnet18_pair_23.json",
+      "bytes": 3611,
+      "sha256": "b39fbd7199ddc1ad187fec0ea01b68ea81a180db32c7871fe23eafefb73c8997",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/resnet18_pair_37.json",
+      "bytes": 4595,
+      "sha256": "f7a20ba8470f11fa3bac0935102da2055235090414bda0c19981676286b4f41c",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/resnet18_single_11.json",
+      "bytes": 4391,
+      "sha256": "60c87f24de61da64c6fcbb3fcdebc933cb600c8a9ad251cced24edb7d0871e8b",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/resnet18_single_23.json",
+      "bytes": 4159,
+      "sha256": "e74e18d8156fcf8ca35a74bc6aaabc5a99db1ab69666ba0b2bc799742f7a9a40",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/architecture-study-01/resnet18_single_37.json",
+      "bytes": 4030,
+      "sha256": "8d95ff13d427d267b9b2a7f2073472d5ced80789790040540167fc9a9842b26f",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/challenges.json",
+      "bytes": 575228,
+      "sha256": "d4754626a44b8e920ffb2eaab06616bbe2c02af39e048e4b6ed8a9a088e177a8",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/classical.json",
+      "bytes": 218975,
+      "sha256": "b24077a467db8dcac0a67946d589977533555d992a2649a3fdcd40a988554378",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/config.json",
+      "bytes": 2254,
+      "sha256": "6e7c6a28f717dc72d18591076a5bb015ec445c15ee56a43178d25b3650385b66",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/dataset.json",
+      "bytes": 1031882,
+      "sha256": "466ad879de627af7fa9529cb5390c22959c3bc57689e30341a662cc1dace3a8e",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/evaluation.json",
+      "bytes": 97130,
+      "sha256": "8d0b660a917db68edb6bd88a92281f54b0bdbde2250f6e1ba4637f110faf71ec",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/flux-evaluation.json",
+      "bytes": 95451,
+      "sha256": "b56096e07aad9bdd895852d0c1f521259810bec58ed22024d8a2700e8aeeacf5",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/flux-oopao-evaluation.json",
+      "bytes": 46703,
+      "sha256": "0bb98acaa65efa315e04f93841e996e2103b931e4aa7eddc9e8febe69fd9ace0",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/models/frozen.json",
+      "bytes": 27127,
+      "sha256": "f2d02f1f79145a2014d4b785af840fd8bb7d1a6ad7bdd950b991f0f651f5b54d",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/oopao/atmosphere_statistics.json",
+      "bytes": 152854,
+      "sha256": "e573b9ace42e0cb900d106633d2d883289cc61dadc3bbdc55e7b92bfad3f7bd2",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/oopao/oopao_dataset.json",
+      "bytes": 24156,
+      "sha256": "332ff0461602c4892b22ce7250dfd1fcbc13a99ff241e4f2e99daf1f4b9973e2",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/oopao/validation.json",
+      "bytes": 81411,
+      "sha256": "6d4b5e06063df6961eaee7f6b1c29d43b2d1ecbab281293404e7f73980a5f783",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/readiness.json",
+      "bytes": 36235,
+      "sha256": "6dfa21bcccc2b0c9d30f86d3f64a47d1f142db0acd9625b12851fcf2e3544ae6",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/shift-diagnostics-01/dataset.json",
+      "bytes": 24656,
+      "sha256": "bccc063f78f35022f686c54673463629e7176fd66dc380dc815b3c94b8ec361d",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/shift-diagnostics-01/protocol.json",
+      "bytes": 2093,
+      "sha256": "d736510c996dfd2bf81a8efa11087e21987f427abe7296ee60e13d684f1f2186",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runs/keck-benchmark-05/shift-diagnostics-01/report.json",
+      "bytes": 2958059,
+      "sha256": "9735ee46566bc3a49f38b11b2462683055355ebab7ae436e8dd87d7568f413fc",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/runtime-versions.json",
+      "bytes": 1838,
+      "sha256": "c54a5c68d04b3eba3dd31e79858e477cebb3d685fb04839af2606473ccc8a7a7",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/TELESCOPE_AO.md",
+      "bytes": 15214,
+      "sha256": "b1300448a39acee06458c512317bd4fbca7eb58f57aa829b9e2151a29a22b09f",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/telescope_case.json",
+      "bytes": 16683,
+      "sha256": "eaa9cb9b8d8613ce302ee9ffa205806bb0a5bc9d45e23e9849c9e31151ace2c8",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/test_comparisons.py",
+      "bytes": 2425,
+      "sha256": "04cec387ee83d28cf83fb8031446ce5830887c3aeedf9b8f86c9e348800a320a",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/test_core.py",
+      "bytes": 1598,
+      "sha256": "f46b20608afb97af7f4519b8095704080596e9a3004418b481a33afdf3873958",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/test_generator.py",
+      "bytes": 1675,
+      "sha256": "cdf37cbfac04256971ccf4ece96ac91c08ce8d341b291333376f2d9a032a085c",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/test_hardware.py",
+      "bytes": 4467,
+      "sha256": "02b797a594c13b0a674eb5de877d2f21eca0bf657c7eeada335f0bb86e8ea3da",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/test_large_telescopes.py",
+      "bytes": 7565,
+      "sha256": "2ff2c1bcbc358ba5005f3f370690ded5a6db3963952d13128916ef2c624d15de",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "benchmark/test_learning.py",
+      "bytes": 8764,
+      "sha256": "079a58426e8726ad774060b2c72bb2697e6fd16c9ada2608b51aa0180008b37c",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "design/closest-prior-work.md",
+      "bytes": 12497,
+      "sha256": "37b062e1d7c9340b85fb400d9069c65c0e85e4562c7fa9a81b3a8a8646d9e58a",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/architecture_evaluate.py",
+      "bytes": 12254,
+      "sha256": "2086c13701d64785fe8c7423071c6f0b3a7be4dd21622b25f4ef34e835a43a65",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/architecture_models.py",
+      "bytes": 8037,
+      "sha256": "c7baabd19207a1d05354f7c4949debc37b5e3aab5b8b57aa7b49da3805947292",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/architecture_study.py",
+      "bytes": 36393,
+      "sha256": "bcd799fb1ccba1a6526cad161660669f5b351b4c2cab0718b7aa9c4eef8d4ed6",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/blocks.py",
+      "bytes": 7736,
+      "sha256": "5219a6f9ad91368bdaec99d1a4aafdfeeb46599d3deadaa861ebab9096e6e505",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/campaign.py",
+      "bytes": 19672,
+      "sha256": "b944989d0955b096a6447e9815bc8159041012ac137e0792412fde744bd4939a",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/flux_report.py",
+      "bytes": 13462,
+      "sha256": "dc2a908394d4abb9bcd5ccb0224126e2336447be62c8c689012e4947318e2c3e",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/full_canary.py",
+      "bytes": 2095,
+      "sha256": "a6a7a848ff5596b7712f87e6467d4bae58c34a4f3b37c9f8c5db8ea4768fc975",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/gpu_admission.py",
+      "bytes": 9827,
+      "sha256": "1ab91b2d3212075f3fd35f3ab55980392d8b301a7cfd57c790a4c706f052da70",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/gpu_backend.py",
+      "bytes": 7171,
+      "sha256": "99f4ad615508f6b53bd80614bd70798dbc79a2a977f0f4f1c94af1e367f6d709",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/gpu_campaign.py",
+      "bytes": 10704,
+      "sha256": "4535696954a471a057d6b0594f68370b312f78fc9429dd404577de482352e61d",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/gpu_lifecycle.py",
+      "bytes": 3386,
+      "sha256": "48f82a574c9ad1894974f50720826ba0c3f1635bfa8eb55ebb29840e108207a7",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/gpu_mft.py",
+      "bytes": 3872,
+      "sha256": "c966ca09b84b57b9d65b66ebbf586c5c46c6d2cef837489cd3f766c3fe3f4c99",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/gpu_packets.py",
+      "bytes": 5620,
+      "sha256": "4d378d808e9251649f739ef8fd122b5bfc5bd30f580177607f296ab78e47b50f",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/gpu_profile.py",
+      "bytes": 3726,
+      "sha256": "284d78e30fd34deb90468ffc23b90f8512749aaebdb543a864e2ec2e2f0e00a4",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/migrate_gpu.py",
+      "bytes": 9855,
+      "sha256": "541b9b9fc5c72a3cc2a942c27f6aa2101d4e507e4913e7ce09b542d96acc1526",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/pilot_compat.py",
+      "bytes": 3046,
+      "sha256": "213ad7f0fa24bb915f83171386ec6428717792ed2dca920620936388a52eec57",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/prefix_canary.py",
+      "bytes": 1387,
+      "sha256": "3d3823484bb4197fe40fd2eb402e7a5e4b6ff26a9740d46391c6ec918954803c",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/README.md",
+      "bytes": 6079,
+      "sha256": "ba5c77fb951a6a52eb5aebeee4d2db7ca21ddda36819446fa3c74556504aac0d",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/recover_gpu_transition.py",
+      "bytes": 2180,
+      "sha256": "14a33fac715a5b7d2be1bb7f455ed739fde1a8b72686f6361109f82e10f3ea49",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/test_blocks.py",
+      "bytes": 7582,
+      "sha256": "85478a9dbce9fa37fa223d3fe8fffc99667180800732a7c24cd15511cd3b09ce",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/test_campaign.py",
+      "bytes": 6723,
+      "sha256": "349c796f8dc876778024e96999cc0995febe3d44298a7706427ccbd5f71d72b4",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/test_flux_report.py",
+      "bytes": 6364,
+      "sha256": "81d1b69599fd75dc30255aa437bf736ee888d0bc600270dd88ecc0dd2e0a05b5",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/test_gpu_packets.py",
+      "bytes": 6397,
+      "sha256": "b2ecf677d1359fcb135a88ec81c79fa2fa09cabd6d3e5d2ccc7769f0cf321f68",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/test_pilot_compat.py",
+      "bytes": 6793,
+      "sha256": "af6d1ba19e8403a1ec9386719dfb598f92bd25a6108213c9bf5ed847d6d11559",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/expanded_campaign/worker_canary.py",
+      "bytes": 4657,
+      "sha256": "f55e01a2dd24f4eea7ef9d78d85074fd6829cdf4b76de48af4f12a489eda66ea",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/fresh_confirmation.py",
+      "bytes": 42632,
+      "sha256": "8819579947f2c1c90ad1269c9d103cbd4f7141491ff4d0ec0fd5ff332d0e161b",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/analysis/shift_diagnostics.py",
+      "bytes": 25263,
+      "sha256": "53db8de99a514b6a8d659eb13b6b0bdbcf34c3a8c0e7fb0c9eda4277e2891d17",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/decisions/architecture-study-2026-10-02.md",
+      "bytes": 6201,
+      "sha256": "e1c6b42e8f7e920329fa6ae42cd5f26aa0c1ea7a01bf827323f9c7a3e73160be",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/decisions/fresh-confirmation-2026-10-02.md",
+      "bytes": 7081,
+      "sha256": "ffec5ef981181f6fbee9ed545b0c9d2c13a1138a4e89272b77d8543f13aa04f2",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "ledger/decisions/paired-shift-diagnostics-2026-10-02.md",
+      "bytes": 4595,
+      "sha256": "01a4f93afb4a7e1d9f3116005990cb5a346a2230f563131b1932e91758ea849e",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "literature/references.csv",
+      "bytes": 19268,
+      "sha256": "6fa86b54896bac37621e302359c136a6fcc0729c346d166ff2c8fa46609785f2",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "literature/requirements.csv",
+      "bytes": 7988,
+      "sha256": "c2cec4c49e424f3f672addd0d5fec2e2228c44d02ab9dbcc1f3146097da82025",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "literature/review.md",
+      "bytes": 14703,
+      "sha256": "9865f712ed69acc7607ad5e0f7088f6bab28c2da7329428445148921763f2f48",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "literature/search-log.md",
+      "bytes": 12553,
+      "sha256": "d3074630a7b9f786262595111073eaffdf1c36848e2c46fc9231d7d127621924",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "manuscript/infrared-lowfs-validation.tex",
+      "bytes": 38489,
+      "sha256": "99cd7c4db78ab5327e5cf00021f819883250bd51bd4eccb107d26bcae98276c9",
+      "treatment": "byte-exact copy of current source file"
+    },
+    {
+      "path": "PUBLIC_RESEARCH_DIRECTION.md",
+      "bytes": 15941,
+      "sha256": "5562d6fa8eccf05513fa075c1dd45b98d877c66cf55ffbaae2283b79dc1d63ac",
+      "treatment": "public-source excerpt; private postdoc section omitted",
+      "source_path": "ledger/decisions/trick-measurement-and-ml-review-2026-10-02.md",
+      "source_sha256": "07d17de263a13a53fa87169b82d2fdb85350149d142dc5828e1b880de181e868"
+    }
+  ],
+  "omitted": [
+    "Original Git history and workflow scaffolding",
+    "Private postdoc/Drive material and identifiers, Overleaf project links, personal narratives",
+    "Raw simulated PSF arrays and trained binary checkpoints",
+    "Third-party vendor trees and copyrighted full-text papers",
+    "Machine logs, caches, virtual environments, unrelated experimental branches",
+    "Untouched confirmation data (not generated)"
+  ]
+}

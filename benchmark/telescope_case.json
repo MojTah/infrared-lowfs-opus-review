@@ -1,0 +1,296 @@
+{
+  "case_id": "keck_i_trick_public_2024_2026",
+  "source_review_date": "2026-09-30",
+  "status": "PUBLIC_SYSTEM_PARAMETERS_WITH_DECLARED_RESIDUAL_SURROGATE",
+  "first_case": "Historical Keck I LGS AO / TRICK, anchored to Taheri 2024 and Salgueiro 2026",
+  "prohibited_claim": "An exact reproduction of current Keck I KAPA or measured on-sky residuals",
+  "sources": {
+    "taheri_2024": {
+      "url": "https://arxiv.org/html/2410.12084v1",
+      "read_depth": "Sections 2-4, Tables 1-2 and simulated/bench dataset descriptions",
+      "relevant_locations": ["Section 2 / Table 1", "Sections 3.1-3.2", "Section 4"]
+    },
+    "salgueiro_2026": {
+      "url": "https://arxiv.org/html/2602.15746v1",
+      "read_depth": "Sections 4-6.2, including sodium-height PSD, sampling and bench residual replay",
+      "relevant_locations": ["Section 4 / Table 2", "Section 5 / Equations 6-7", "Section 6.2"]
+    },
+    "hcipy_pupil": {
+      "url": "https://docs.hcipy.org/0.7.0/api/hcipy.aperture.make_keck_aperture.html",
+      "read_depth": "Complete API documentation plus function source from the 0.7.1 wheel",
+      "wheel_url": "https://files.pythonhosted.org/packages/28/67/e230fa988079950afbc8ec76eb5a8ef8c576d753e57b01538d22e48845ab/hcipy-0.7.1-py3-none-any.whl",
+      "wheel_sha256": "33ca4a70fcf62f53b95875ee9e41ed199d17eb2d39076b2b9a34192be3f72f60"
+    },
+    "keck_current": {
+      "url": "https://www2.keck.hawaii.edu/inst/ao/",
+      "read_depth": "Complete current public instrument overview"
+    },
+    "keck_controller_2004": {
+      "url": "https://www2.keck.hawaii.edu/optics/aodocs/ApplOptVol43_29oct2004.pdf",
+      "read_depth": "Sections 2C and 3C1, DM influence and transfer-function equations; selected sections only"
+    },
+    "keck_lgs_2006": {
+      "url": "https://www2.keck.hawaii.edu/optics/aodocs/MvDetal2006PASP118_310.pdf",
+      "read_depth": "Section 2.2 / Figure 1 and reference-controller discussion; selected sections only"
+    }
+  },
+  "pupil": {
+    "generator": "hcipy.make_keck_aperture",
+    "hcipy_version": "0.7.1",
+    "generator_parameters": {
+      "normalized": true,
+      "with_spiders": true,
+      "with_segment_gaps": true,
+      "gap_padding": 1,
+      "segment_transmissions": 1
+    },
+    "evaluation": "Evaluate the normalized aperture on a pupil grid scaled by 1 / selected_diameter_m; integrate unresolved gap/spider edges by pupil quadrature.",
+    "selected_diameter_m": 10.949,
+    "diameter_source": "Salgueiro 2026 Section 4 / Table 2",
+    "hcipy_native_diameter_m": 10.95,
+    "hcipy_native_segment_corner_to_corner_m": 1.8,
+    "hcipy_native_central_obscuration_m": 2.6,
+    "hcipy_native_gap_m": 0.003,
+    "hcipy_native_spider_width_m": 0.026,
+    "note": "HCIPy model ratios scale with selected diameter. Its documented validation refers to published Keck II studies and internal simulation agreement; this is not an as-built Keck I/TRICK pupil calibration. The library default gap_padding is 10; the explicit physical-gap choice is 1."
+  },
+  "trick_published": {
+    "pixel_scale_mas": 50,
+    "h_reference_wavelength_m": 0.00000165,
+    "k_reference_wavelength_m": 0.00000218,
+    "natural_diversity_noll_index": 6,
+    "natural_diversity_nm_rms_approximate": 200,
+    "taheri_exposure_s": 0.01,
+    "taheri_read_noise_electrons_rms": 5,
+    "exact_bandpass_transmission": null,
+    "exact_pupil_rotation": null,
+    "exact_detector_ipc_bad_pixels_saturation": null
+  },
+  "published_2024_atmosphere": {
+    "platform": "OOMAO",
+    "r0_m": 0.165,
+    "r0_reference_wavelength_m": null,
+    "outer_scale_m": 75,
+    "raw_layer_strength_fractions": [0.51, 0.11, 0.06, 0.06, 0.10, 0.08, 0.05],
+    "raw_fraction_sum": 0.97,
+    "layer_heights_m": [0, 500, 1000, 2000, 4000, 8000, 16000],
+    "wind_speeds_m_s": [6.7, 13.9, 20.8, 29, 29, 29, 29],
+    "wind_directions_radians_as_pi_multiples": [0, 0.3333333333333333, -0.3333333333333333, -1, -1.3333333333333333, -0.16666666666666666, 0.125],
+    "normalization_policy": "Keep the published raw fractions; divide by 0.97 only as an explicit simulator assumption.",
+    "source_location": "Taheri 2024 Table 1",
+    "known_unknowns": ["r0 reference wavelength", "NGS versus LGS angular separation", "LGS cone/elongation geometry", "scintillation configuration"]
+  },
+  "published_2024_controller": {
+    "high_order_wfs_type": "Shack-Hartmann",
+    "lenslets_across": 20,
+    "dm_actuator_grid": [21, 21],
+    "loop_frequency_hz": 1000,
+    "integrator_gain": 0.25,
+    "lag_loop_steps": 1,
+    "unrecorded_initial_loop_steps": 30,
+    "source_location": "Taheri 2024 Table 1 / Section 3.1",
+    "known_unknowns": ["DM influence-function choice in OOMAO", "reconstructor and regularization", "HOWFS wavelength and detector response", "exact loop-state timing convention"]
+  },
+  "residual_evidence": {
+    "salgueiro_bench_ho_range_nm_rms_approximate": [200, 300],
+    "generation": "Replayed DM command time series representing median Keck-site turbulence",
+    "published_time_series_url": null,
+    "published_residual_spatial_psd": null,
+    "published_residual_temporal_psd": null,
+    "bench_replay_is_atmospheric_on_sky_data": false,
+    "note": "RMS alone does not define a residual distribution; filtered atmospheric screens are a surrogate until controller/PSD validation is supplied."
+  },
+  "benchmark_assumptions": {
+    "r0_reference_wavelength_m_if_required": 0.0000005,
+    "r0_reference_status": "Explicit conventional assumption; not stated in Taheri 2024",
+    "layer_strength_policy": "Renormalize published fractions by their recorded 0.97 sum",
+    "residual_model": "HCIPy frozen-flow layers with an explicitly recorded spatial correction filter; not a full measured-slope Keck AO loop",
+    "nominal_residual_nm_rms": [100, 200],
+    "shifted_residual_nm_rms": [300],
+    "residual_strength_status": "Study perturbation grid; the 100 nm case is not a published Keck median",
+    "bandpass_m": [0.0000015, 0.0000018],
+    "bandpass_status": "Study H-band approximation; measured TRICK transmission not provided",
+    "full_system_reproduction_requires": ["Explicit measured-slope or calibrated residual transfer model", "Spatial and temporal residual-statistics verification", "Documented off-axis/LGS geometry", "Independent instrument pupil and detector calibration"]
+  },
+  "slow_sodium_focus_published": {
+    "height_psd_alpha_m2_per_hz": 35,
+    "height_psd_beta": -1.9,
+    "mean_layer_height_m": 90000,
+    "telescope_height_m": 4145,
+    "equation": "focus_opd_rms_m = (D / (h - h0))**2 * delta_h / (16 * sqrt(3))",
+    "separate_from_high_order_residual_psd": true,
+    "finite_frequency_limits": null,
+    "note": "A finite sampled process requires explicit low/high frequency cutoffs; do not invent a stationary variance for the unbounded power law. This dynamic experiment follows the constant-label acquisition benchmark."
+  },
+  "current_kapa_distinction": {
+    "dm_actuator_count": 349,
+    "sh_lenslets_across": 20,
+    "maximum_sh_frequency_hz": 2000,
+    "lgs_count": 4,
+    "lgs_square_radius_arcsec": 15.2,
+    "source_location": "Current official Keck AO overview",
+    "note": "These current parameters do not retroactively turn the historical single-LGS/1 kHz case into KAPA LTAO."
+  },
+  "conditional_followup": [
+    {
+      "facility": "TMT",
+      "first_candidate_system": "NFIRAOS / IRIS OIWFS",
+      "gate": "Keck physics, held-out estimator and independent-engine gates pass first",
+      "public_pupil_generator": "hcipy.make_tmt_aperture",
+      "nominal_diameter_m": 30,
+      "segments": 492,
+      "ao_maximum_hz": 800,
+      "dm_grid_ground": [63, 63],
+      "dm_grid_high": [76, 76],
+      "high_dm_height_m": 11800,
+      "lgs_count": 6,
+      "lgs_ring_radius_arcsec": 35,
+      "oiwfs_pixel_scale_mas": null,
+      "residual_time_series": null,
+      "source_urls": ["https://www.tmt.org/page/optics", "https://www.tmt.org/page/instruments-adaptive-optics"],
+      "note": "Detailed current NFIRAOS overview; 800 Hz is high-order AO, not an OIWFS allocation."
+    },
+    {
+      "facility": "ELT",
+      "first_candidate_system": "MORFEO / MICADO full-aperture LO and 2x2 SH",
+      "gate": "Keck gates pass and a specific instrument sensor/residual model is frozen",
+      "public_pupil_generator": "hcipy.make_elt_aperture",
+      "nominal_diameter_m": 39,
+      "hcipy_native_diameter_m": 39.14634,
+      "segments": 798,
+      "lo_bands": ["J", "H"],
+      "full_aperture_pixel_scale_mas": 7,
+      "sh_2x2_pixel_scale_mas": 15,
+      "lo_rate_envelope_hz": [100, 1000],
+      "reference_sh_grid": [8, 8],
+      "reference_rate_envelope_hz": [10, 100],
+      "ho_sh_grid": [68, 68],
+      "ho_rate_hz": 500,
+      "residual_time_series": null,
+      "source_urls": ["https://elt.eso.org/about/facts/", "https://arxiv.org/html/2608.13728v1"],
+      "note": "2026 published design; full-aperture LO primarily TT, focus uses 2x2 SH. Dedicated LIFT out-of-focus channel targets petals. HARMONI uses different NGS sensors."
+    },
+    {
+      "facility": "GMT",
+      "first_candidate_system": "Historical LTAO OIWFS focus truth",
+      "gate": "Keck gates pass and current sensor/detector/residual parameters are verified",
+      "public_pupil_generator": "hcipy.make_gmt_aperture",
+      "nominal_diameter_m": 25.4,
+      "hcipy_native_diameter_m": 25.448,
+      "primary_segment_count": 7,
+      "primary_segment_diameter_m": 8.4,
+      "historical_focus_rate_hz_approximate": 10,
+      "current_oiwfs_bandpass": null,
+      "current_oiwfs_pixel_scale_mas": null,
+      "current_focus_allocation_nm": null,
+      "residual_time_series": null,
+      "source_urls": ["https://giantmagellan.org/telescope-primary-mirrors/", "https://gmto.github.io/gmt_docs/SWC_architecture/tcs/wavefront_control/ltao_obsmode.html"],
+      "note": "Architecture page cites 2013 design and contains TBA tables; approximate 10 Hz focus is historical, not a verified current allocation. Segment piston is a separate target."
+    }
+  ],
+  "conditional_aperture_verification": {
+    "installed_version": "0.7.1",
+    "verified_interpreter": "benchmark/.venv/Scripts/python.exe",
+    "evidence": "Installed signatures/source inspection and constructor-only segment counts; no focal-plane or atmospheric simulation",
+    "common_call": "Use normalized=True, with_spiders=True, return_segments=True; evaluate on pupil_grid / selected_diameter_m. Keep native geometry or explicitly declare uniform rescaling.",
+    "no_geometrical_override_arguments": ["diameter", "obscuration", "spider_width", "gap_size", "pupil_rotation"],
+    "TMT": {
+      "signature": "make_tmt_aperture(normalized=False, with_spiders=True, segment_transmissions=1, return_segments=False)",
+      "constructor_segment_count": 492,
+      "native_diameter_m": 30,
+      "native_segment_corner_to_corner_m": 1.44,
+      "native_gap_m": 0.0025,
+      "native_circular_obscuration_m": 3.636,
+      "native_inner_missing_segment_mask_parameter_m": 3.6,
+      "native_spider_count": 6,
+      "native_spider_width_m": 0.22,
+      "spider_angles_degrees": [30, 90, 150, 210, 270, 330],
+      "source_epoch": "HCIPy source cites official TMT optics and Jensen-Clem 2021 Figure 5 for shadow/support dimensions",
+      "geometry_caution": "Official mechanical secondary diameter is 3.1 m; do not substitute it for the published 3.636 m projected pupil shadow without checking the optical projection."
+    },
+    "ELT": {
+      "signature": "make_elt_aperture(normalized=False, with_spiders=True, segment_transmissions=1, return_segments=False)",
+      "constructor_segment_count": 798,
+      "native_diameter_m": 39.14634,
+      "native_segment_corner_to_corner_m": 1.45,
+      "native_gap_m": 0.004,
+      "native_central_missing_segment_mask_parameter_m": 9.4136,
+      "native_spider_count": 6,
+      "native_spider_width_m": 0.4,
+      "source_epoch": "E-ELT Construction Proposal Figure 3.66",
+      "geometry_caution": "Central obstruction is created by excluding segments, not by a circular mask. METIS 2024 simulation uses 0.54 m spiders; TIPTOP MORFEO pupil uses 38.5 m effective diameter with about 0.283 obscuration. These are distinct pupil models."
+    },
+    "GMT": {
+      "signature": "make_gmt_aperture(normalized=False, with_spiders=True, return_segments=False)",
+      "constructor_segment_count": 7,
+      "native_diameter_m": 25.448,
+      "native_central_segment_diameter_m": 8.293,
+      "native_off_axis_unprojected_segment_diameter_m": 8.35,
+      "off_axis_projection_tilt_degrees": 13.522,
+      "native_central_hole_diameter_m": 3.495,
+      "native_support_widths_m": [0.119, 0.115],
+      "source_epoch": "GMT-REQ-03215 Rev. F plus source-author corrections to match internal GMTO pupil files",
+      "geometry_caution": "Six outer segments are projected ellipses; central segment has truss/diverging supports. No segment_transmissions keyword. Do not replace with seven identical disks or assert current instrument-stop agreement."
+    },
+    "H_band_sampling_calculation": {
+      "wavelength_m": 0.00000165,
+      "formula": "nyquist_pixel_mas = wavelength_m / (2 * selected_diameter_m) * 206264806.24709636",
+      "TMT_nyquist_pixel_mas": 5.67228217179515,
+      "ELT_nyquist_pixel_mas": 4.363293978303961,
+      "GMT_nyquist_pixel_mas": 6.699545872198996,
+      "TMT_pixel50_mas_in_lambda_over_d": 4.407397100995782,
+      "ELT_pixel50_mas_in_lambda_over_d": 5.729616231294517,
+      "GMT_pixel50_mas_in_lambda_over_d": 3.731596212176428,
+      "shortest_band_wavelength_m": 0.0000015,
+      "TMT_shortest_band_nyquist_pixel_mas": 5.156620156177409,
+      "ELT_shortest_band_nyquist_pixel_mas": 3.9666308893672375,
+      "GMT_shortest_band_nyquist_pixel_mas": 6.0904962474536335,
+      "policy": "50 mas remains a deliberately severe undersampling control, not an ELT-class sensor specification. Freeze instrument-specific pixels separately."
+    }
+  },
+  "additional_public_residual_sources": [
+    {
+      "facility": "TMT NFIRAOS",
+      "software": "MAOS",
+      "repository": "https://github.com/lianqiw/maos",
+      "source_revision": "16aed2e10885c83e27d087738fdfc90f6a027ccd",
+      "reviewed_paths": ["docs/43_nfiraos.md", "config/maos/examples/nfiraos_lgs.conf"],
+      "public_disturbance_inputs": ["config/maos/bin/PSD_TMT_ws50p13mas_vib15mas_rad2.bin", "config/maos/bin/TMT_M1.bin"],
+      "source_status": "PUBLIC_CONFIG_REVIEWED_NO_SIMULATION",
+      "caution": "Example runs at 600 Hz and includes config files recursively; source-review all includes and geometry/detector epochs before use. It is not a frozen current 800 Hz NFIRAOS reproduction or supplied residual time series."
+    },
+    {
+      "facility": "ELT MORFEO",
+      "software": "TIPTOP",
+      "repository": "https://github.com/astro-tiptop/TIPTOP",
+      "source_revision": "3d8c20888b40d8fa8750caec2a46535b164b2697",
+      "reviewed_config": "tiptop/perfTest/MORFEO.ini",
+      "public_pupil_path": "tiptop/data/EELT480pp0.0803m_obs0.283_spider2023.fits",
+      "public_static_opd_path": "tiptop/data/ELT_M1_MORFEO_DMs_static_wfe_480px.fits",
+      "public_windshake_psd_path": "tiptop/data/morfeo_windshake8ms_psd_2022_1k.fits",
+      "source_status": "PUBLIC_CONFIG_REVIEWED_NO_SIMULATION_OR_FITS_DOWNLOAD",
+      "config_effective_diameter_m": 38.5,
+      "config_atmosphere_reference_wavelength_m": 0.0000005,
+      "config_seeing_arcsec": 0.641,
+      "config_outer_scale_m": 25,
+      "config_layer_count": 35,
+      "config_ho_rate_hz": 500,
+      "config_ho_gain": 0.25,
+      "config_ho_delay_steps": 3,
+      "config_lo_rate_hz": 250,
+      "config_reference_pixel_scale_mas": 125,
+      "caution": "Analytical long-exposure residual PSD, not a short-exposure evolving phase sequence. Config reference pixel scale 125 mas differs from 2026 MORFEO paper 165 mas; preserve epochs. HO spatio-temporal PSD includes MMSE/POLC reconstruction and controller assumptions; optional effects are not all modeled."
+    },
+    {
+      "facility": "ELT METIS",
+      "source_url": "https://link.springer.com/article/10.1007/s10686-024-09968-2",
+      "read_depth": "Sections 2.6, 6.1.1-6.1.2 and Data Availability",
+      "software": "COMPASS 5.0 with custom p_metis, p_calibration_DM and p_ccs modules",
+      "reported_baseline_spider_width_m": 0.54,
+      "reported_baseline_loop_frequency_hz": 1000,
+      "residual_outputs_public_download": null,
+      "source_status": "PUBLISHED_METHOD_OUTPUTS_AVAILABLE_UPON_REQUEST",
+      "caution": "Custom module/data availability prevents claiming an exact stock-COMPASS reproduction. High-order K-band pyramid and auxiliary MIR focal-plane loops are different sensors from MORFEO LOWFS."
+    }
+  ]
+}

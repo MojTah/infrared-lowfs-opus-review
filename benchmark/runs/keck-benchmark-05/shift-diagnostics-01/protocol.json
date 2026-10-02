@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "sources": {
+    "ledger/analysis/shift_diagnostics.py": "53db8de99a514b6a8d659eb13b6b0bdbcf34c3a8c0e7fb0c9eda4277e2891d17",
+    "ledger/analysis/expanded_campaign/gpu_backend.py": "99f4ad615508f6b53bd80614bd70798dbc79a2a977f0f4f1c94af1e367f6d709",
+    "ledger/analysis/expanded_campaign/gpu_mft.py": "c966ca09b84b57b9d65b66ebbf586c5c46c6d2cef837489cd3f766c3fe3f4c99",
+    "ledger/decisions/paired-shift-diagnostics-2026-10-02.md": "01a4f93afb4a7e1d9f3116005990cb5a346a2230f563131b1932e91758ea849e"
+  },
+  "baseline_frozen_sha256": "f2d02f1f79145a2014d4b785af840fd8bb7d1a6ad7bdd950b991f0f651f5b54d",
+  "architecture_frozen_sha256": "2f1bc2e198a178caeddaff5b045e77bae0ef8be43ece0323b4dba3a7003134a3",
+  "architecture_reporter_sha256": "2086c13701d64785fe8c7423071c6f0b3a7be4dd21622b25f4ef34e835a43a65",
+  "measurement_hash": "cf9178fcfc4a35605dce9a4104da7e8c7ab0b0a5e564fe05b8bd0d5383b5545e",
+  "basis_sha256": "bef87e0053177eb0c68d2cd28223d44d4b2c4357210be7bced0da4afbdafdc62",
+  "engine_source_hash": "648c0bd875c818ed1c06d246213c283b9a2448b194c0ce663b26176550a342cb",
+  "config_hash": "371987b7002721356bd12bb67106cf706507413487fa0794cf844af01c7e3540",
+  "parent_count": 20,
+  "condition_order": [
+    [
+      200.0,
+      10.0,
+      1.0
+    ],
+    [
+      200.0,
+      10.0,
+      1.1
+    ],
+    [
+      200.0,
+      6.0,
+      1.0
+    ],
+    [
+      200.0,
+      6.0,
+      1.1
+    ],
+    [
+      300.0,
+      10.0,
+      1.0
+    ],
+    [
+      300.0,
+      10.0,
+      1.1
+    ],
+    [
+      300.0,
+      6.0,
+      1.0
+    ],
+    [
+      300.0,
+      6.0,
+      1.1
+    ]
+  ],
+  "flux_e": [
+    1000.0,
+    10000.0,
+    100000.0
+  ],
+  "modal_order": [
+    "focus",
+    "astig_cos",
+    "astig_sin",
+    "spherical"
+  ],
+  "seed_entropy": [
+    20260930,
+    2910357,
+    "parent index"
+  ],
+  "scope": "post-baseline development; no untouched confirmation or telescope-performance claim",
+  "inference_calibration": "frozen nominal metadata; no nuisance/residual truth supplied"
+}

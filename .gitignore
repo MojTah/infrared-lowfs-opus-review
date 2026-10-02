@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.venv/
+.review-local/
+benchmark/tmp*/
+OPUS_AI_CONSULTATION.md

@@ -1,0 +1,801 @@
+{
+  "schema_version": 1,
+  "shards": [
+    {
+      "path": "parent_0000.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0000",
+      "sha256": "8c452343d51e538b3a3ec815c847e4a7fb8938d506c6b30c25b456e99c2ca261",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0001.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0001",
+      "sha256": "2a4436486793aaa1d2806d4bf542c1eb113e88e32b11ded08acf19c89d125a0e",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0002.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0002",
+      "sha256": "9919f5d40dde6f47ad794f9141e8a72f787613bf6df38004dddd7caa9a0722b7",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0003.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0003",
+      "sha256": "5385be6350ce328e8912506896f38ac12d3550598f0a00960b8041b78a5ac798",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0004.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0004",
+      "sha256": "c01833ea9f968ae4ff2da6ca5d7bf37ff2279e3563e233e166a7c819bcf2192a",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0005.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0005",
+      "sha256": "736b2838e65f487429ae0ded7feb59ca5adb694fa52cdb9cb75a0242008c0c9f",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0006.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0006",
+      "sha256": "c39cffa900c316c6772b63bed6a986baa311f112c1d9537e9d42a588cea404af",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0007.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0007",
+      "sha256": "3709ac705d52b6a0d34cfb38702c0218f4aa15374b966e40e36bfd01ff9c7973",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0008.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0008",
+      "sha256": "9b85b54ded4803b92eb9eb18129a486fcb0df559d0cda0a7d3bdc5c96a06dc81",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0009.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0009",
+      "sha256": "6998f0b6875d272246bbd9bba719a293bf5e2bb181364d9a52dc05584015bcd0",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0010.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0010",
+      "sha256": "4265c4fb33fb1c82c701baa7946cdb4237fe93fbbce2cdda4bd1284164a151c5",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0011.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0011",
+      "sha256": "86b4073411b49a124a67168a4afd63edddc952fee943cbecc4d11abf06f4a58a",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0012.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0012",
+      "sha256": "766915af16cb7ca3d5659b7f07d1f92d21d8a384d8e352175fc40ff331fa53c9",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0013.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0013",
+      "sha256": "54c28c224df326837e9de04e2f5293026c70c967233d37a969b6ccc88bcf5dad",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0014.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0014",
+      "sha256": "1f134028d0d530b36f8c20d96c83ceb64220cb9aac3d6f3d549db946c0821083",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0015.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0015",
+      "sha256": "665420206998373d39b9e1ed882a209aba76f089a54b7fd904224736a8f4cbaa",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0016.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0016",
+      "sha256": "ef7d78667708a27b88733edf57f663fc9e7a98c5b4187ddd402624a62ba2bc3d",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0017.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0017",
+      "sha256": "dffe8fd71a946ce589537e67d2e81fa8bc3c101c1e882bfee0ad750ebb8043fc",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0018.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0018",
+      "sha256": "d24f43358a82ee4805315d2309e2d42cbd031ad707dc4dde18d938af3880bdcb",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0019.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0019",
+      "sha256": "11d0d7765b11ed4337a8ee43a4f6e813d456447fcb205f4362763659dcd8ea04",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0020.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0020",
+      "sha256": "c1c25974fd13ea021c7ea4b7f7b9308e8183ca7608453cf4309371034b0bb36c",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0021.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0021",
+      "sha256": "190207b4a4f754f0714e7daa1971890f7a570dfef12bde83dc7883a0b5cd9862",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0022.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0022",
+      "sha256": "570a8d803b704aa31698cbe965e39175e8ad95ffc84388c9c6288ddbda0795b3",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0023.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0023",
+      "sha256": "e8a9cdf7c284707ee5105c728ec8befa4d42133a1db9b233d3a4904891ff8a30",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0024.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0024",
+      "sha256": "83f9967f7892b489f2c9e97423ecd700262fa5d9bc6708003740099cb6680bf7",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0025.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0025",
+      "sha256": "a927e6a9c82f12e0ed7675bc5c96c7cfa899ce96947b7fdfa8d6ab2ca134d9e6",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0026.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0026",
+      "sha256": "16a55323e5c3e65d7b8d763873caf780aa192739ca488d568ca28c6d1df458b0",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0027.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0027",
+      "sha256": "69863b669b36cbf0663addfad1ea7151801d9ac0a9fb0a395de28fce6549e8be",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0028.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0028",
+      "sha256": "fb97662da50456045764980fcd9d819dc447e79d0a01b9c54a93dc841bd9043d",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0029.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0029",
+      "sha256": "62c228f7563cde56a023bc987abf8a9761119af5f22ec1819df30c961d19daae",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0030.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0030",
+      "sha256": "61afaf4f0b02a010cab97112a4aa1a88d3d0691a35a0749faa507e4ae6ae500d",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0031.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0031",
+      "sha256": "97873c34d24542cd7c1d7c046093b0e6c9689f10ead1e825e256ddc1c303bc48",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0032.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0032",
+      "sha256": "b2c0143074cb9323c0d6351ee88d6a5ce09bc704a8b3ae0e1d8bf07e428a6f33",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0033.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0033",
+      "sha256": "a8a29f513c0b92c13e6e514dd53b689ec513b541b9878f9de75b2cf3e3b568d1",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0034.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0034",
+      "sha256": "679c6e0be0faf91df956cacae5a16c0c9f0bf58d27c46758eef651b1a427e357",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0035.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0035",
+      "sha256": "7da67cf6be91c5e4e99a37364a78b7082910066c874edad708839714db117e41",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0036.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0036",
+      "sha256": "c07c9bf8744bdc24b247e3603ffd0041ea9e72b53af41903c7086a0da3ba6d69",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0037.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0037",
+      "sha256": "d37b7c6ea330b43d61084113c4381e1917b5282379ae35bed03228dcab311f9e",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0038.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0038",
+      "sha256": "0701f7281b17558586affc6d61d95e55b82c02f1b370b36ff9b99bb222fd158f",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0039.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0039",
+      "sha256": "bd0949fb8da9cb72b17592b0bcc5cb47087dc2ecade414069b42cd237bebffc4",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0040.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0040",
+      "sha256": "a9f05d411ee11295e28030d9cde0de95acd7acbb99cf65d379585bbf313b85b7",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0041.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0041",
+      "sha256": "b77c11e8fcc6f1283b9855cdea6a1ecb54f8e4b66fdf6201148287c0073892ac",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0042.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0042",
+      "sha256": "d7107c949d4be8d6b658504eb34faf806394052df9e57333e48a09739f9c88cd",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0043.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0043",
+      "sha256": "7a2cb5fe876e2be415b897a3871b6e3f87fe1cff6acd8d0bb1e2c6ec914f672c",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0044.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0044",
+      "sha256": "aa8146b799b3a3db39f9f9675c5f67f3a469354ee184d9fea67fcf90ebd74faf",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0045.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0045",
+      "sha256": "45334a77f610d0b89e3bfeb17e84b913e9253cd9726d647008d372c89de53d67",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0046.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0046",
+      "sha256": "3bb1601e1e3d371e1ccdb78163b5dc29b7363e7ce6b974d047af19a08e1d60b8",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0047.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0047",
+      "sha256": "6ecdd52da4378426a7aebcc17646dbba880b9396a2f06bebc906ce4cc6a1877c",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0048.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0048",
+      "sha256": "e68c575b99a3cf64ba04ac7a14f3af7d7f7f36b21015ae0246b0e5b457a8157a",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0049.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0049",
+      "sha256": "d16a774f306296cf30f806f60fa160a348d36b5cabe8831d6e039ba1146015a0",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0050.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0050",
+      "sha256": "7ef3d1839064943033e84a8183ed756360086890a4a76b37f8276a6828f0a1fb",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0051.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0051",
+      "sha256": "6cb04149b61d0e93dbc9365abed3277c68c3d50beccc21d47231785d47c9b565",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0052.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0052",
+      "sha256": "473a148cdeead04df692a458201adccc427c6e15acf8221343275db58c8c383f",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0053.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0053",
+      "sha256": "adf46838b5fb098fee7f7372a68432b5a6743481d770b93ab40e3658bab54847",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0054.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0054",
+      "sha256": "a1956d13ad65f5589c06ae579beda5025e2a2f019857ab3d52dfc776cd4d9be0",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0055.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0055",
+      "sha256": "f4217a1c67d9951927a127b3141e48c60a053fd4a6bb010d25e9cef59122152f",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0056.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0056",
+      "sha256": "761a11cd5e5a833e70a3796f27c74809f5de5635665fcf0a47e293afbae03ce3",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0057.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0057",
+      "sha256": "e5edf1a4f59444bfd886f27aec0201133060859791bdca36bc2e2754849c4bc1",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0058.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0058",
+      "sha256": "d64d5a5fcfd89eeccafcd5a4307ebf380694e61daeff4feabec9447df89736f2",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0059.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0059",
+      "sha256": "b490b5d3240548a875b9140df0e05faa17baa609aefbf7d32c11942eb7b8bcba",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0060.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0060",
+      "sha256": "9045dfdc370f9424e5b4e9c623940b53cf5463b40c0fcbbf0ea3478c0f679325",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0061.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0061",
+      "sha256": "acdcc4021ce51e7fb5088708701c683deae1a740683f5eca967b80d5697eb9b4",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0062.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0062",
+      "sha256": "530c331dfa4dabe5def31a61c8cfc60f98895d15df3d5f3a85e253490504e6ca",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0063.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0063",
+      "sha256": "b07cb04f879f88d417c4cd393e6235b23cb93993f22a8b7e88de2697d8888126",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0064.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0064",
+      "sha256": "fe42f392bb85d78bfbb75d4f45775c4fa2c21de7dbfdbd86ba11bf6485cb1bd2",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0065.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0065",
+      "sha256": "c0148b9a50d50a545c19df5efb2c4fe2d21de4318d72fbebaaa65b7aac86453c",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0066.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0066",
+      "sha256": "7f5a4de28af1ae7bba4befda209556830d272d24df1b6f69510bde38e6612263",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0067.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0067",
+      "sha256": "82100eeb2823cf06ccd76b22697c533d27a5edb0b39423f99a5fb1007bdce9ae",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0068.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0068",
+      "sha256": "ece2b3da1eedfbb7c7814a63d676774d059b5702cf55de1e8e0eb96b473eac8c",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0069.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0069",
+      "sha256": "8bfe9b464ec86d725fa22fd8a1a81ec1eb1cb365cf9113ffef59abb218c51a83",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0070.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0070",
+      "sha256": "15e55b9a84c67d6653d51c2ca877c40170dfd79f26be27efbb06acbf83f9a630",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0071.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0071",
+      "sha256": "139546a9662bf18c15ae7eae51b4c8f06bef14e50d210749d26640caf4e3f63d",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0072.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0072",
+      "sha256": "0ef4a36862d7c8cd4df6214e542c74f38956fcc494557bd9e89ccf793e5eb426",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0073.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0073",
+      "sha256": "788b15d6c89e45462d855eb928770ab22cb1dffb69b35333ede049f0b629a41a",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0074.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0074",
+      "sha256": "b63c3907ea382976553304a7abcbdc65a67efd38cac2c54a463db272e626c289",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0075.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0075",
+      "sha256": "f58f7978a633ffb22a753ccc6322fcb8c2fc4944134d4ab8e8e9d90be8e5bd74",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0076.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0076",
+      "sha256": "7e3e80fcfc7175d5d63e37ff2f08eaa0156d32e7ecfa5efca97877cdce5878a9",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0077.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0077",
+      "sha256": "305ddc2e7ec93e4d68b374dea0de59058f66816fe2d1493a763814e2728c3313",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0078.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0078",
+      "sha256": "75638e05fb9330e4621fe747168af942e328a74f3c5e5304cecedff435ead8c8",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0079.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0079",
+      "sha256": "621ef2d1dd3ecc7696300df40a3c05b125062e79e3c7f2b25ed4984326221609",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0080.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0080",
+      "sha256": "89b0facfd7efef07666897c048988ee8bfd334bc1cf2d6148d80f3139555515f",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0081.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0081",
+      "sha256": "9070183be824eae4548b60f4de06c0101c395b6587c8d1285f95a10da0ca440b",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0082.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0082",
+      "sha256": "da0d11420e32dc46bf2531132bc82cf294dd9bc9aa0816f875bbe9e22154ca47",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0083.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0083",
+      "sha256": "d1706387d72191734d82a6276908622e95455d62a559a3d7c06f972462e8eb89",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0084.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0084",
+      "sha256": "47e006628d14724f939feca47abfb52cb7761df17bc844f64c6d743d78032a5d",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0085.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0085",
+      "sha256": "afc62174db696b2f0714e6b7c45399a4907ba9605b182b20837485ae44e874e3",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0086.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0086",
+      "sha256": "6d701808d4ae4aa96c2484041df0ba100e14cf0ac9db4c17f573ad583e2179e3",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0087.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0087",
+      "sha256": "97ed422226d127fbbca8a9e86e9e33a227ae03983ce5d3f92355d7d078d26f50",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0088.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0088",
+      "sha256": "195b0e7865e364313ff23d488d17fa035d16e7b272d946ba6cf5d335d52cc2c0",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0089.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0089",
+      "sha256": "2ca2a66a6cbe1ccc5077f847cafef06e3ffc9c9957f5a46c874301cf23a7e277",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0090.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0090",
+      "sha256": "8a245ac5388d1ff69d02e57b3ad91b0e8b8cf1930020754bfe530220ef14b47d",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0091.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0091",
+      "sha256": "c9c6ece20e65fd6de9ff9e347ab164dce03c8bc0d816a91da475d314cb6e084d",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0092.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0092",
+      "sha256": "046b1432c0cf82ac80f74feba554de89d983c62018f3aa26591985116e78f6a4",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0093.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0093",
+      "sha256": "7394afc5331cec999a3f8ca2e93258fb81396f79688533b8ffa41201bc51fb28",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0094.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0094",
+      "sha256": "6f42efe5bac061555feeb8a17b5ed59a84b1d486e40972b459466a3a77444f18",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0095.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0095",
+      "sha256": "44595b309b572ea2f3b43a78e40bdf27df794f16f9b9648cece7c44145242cc4",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0096.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0096",
+      "sha256": "f4f478e1eebf88f97c8ad5be210fb494a57343f69f7b0982fc1d9d2e2ade9e0c",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0097.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0097",
+      "sha256": "7e5fdc643bb61f6356c13c95cb4645aa75198ae15be349f463ab788efb5ffaa4",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0098.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0098",
+      "sha256": "61ca50271c9460bad32de89951b099e655918cbe2c87cf135725449575008ea1",
+      "acquisitions": 5
+    },
+    {
+      "path": "parent_0099.npz",
+      "split": "oopao",
+      "parent_id": "oopao_0099",
+      "sha256": "e62692dc4b802d89010f1db7baae2254c20a6bf0f751404912555bf957e3b9b1",
+      "acquisitions": 5
+    }
+  ],
+  "config_hash": "371987b7002721356bd12bb67106cf706507413487fa0794cf844af01c7e3540",
+  "source_hash": "648c0bd875c818ed1c06d246213c283b9a2448b194c0ce663b26176550a342cb",
+  "oopao_revision": "e8e9aa60cf99f4ab21a4dae7c29aae9b9ec6ec87",
+  "measurement_hash": "cf9178fcfc4a35605dce9a4104da7e8c7ab0b0a5e564fe05b8bd0d5383b5545e",
+  "basis": {
+    "mu": [
+      1.0418494663316053e-16,
+      -2.1446874224478885e-18,
+      -0.17385896921791663,
+      0.00014381770579226892,
+      2.302606127551612e-19,
+      -0.35256493816839746
+    ],
+    "transform": [
+      [
+        1.0542449004506746,
+        9.737568497509444e-19,
+        -2.469840620634878e-16,
+        -1.881505431726542e-16,
+        -1.8363481070886675e-16,
+        -1.758720038862528e-16
+      ],
+      [
+        0.0,
+        1.0543825187811364,
+        -2.373509884872719e-16,
+        1.4306783285398947e-16,
+        -1.5788529797614197e-16,
+        -2.62645945151722e-16
+      ],
+      [
+        0.0,
+        0.0,
+        1.236142681520455,
+        -0.00023171320610193842,
+        -3.3199493758269623e-18,
+        0.3394791673732857
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.1393075618323802,
+        -2.148245850756972e-19,
+        -0.0009080048880061233
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.1390198247656274,
+        -1.6969862677000888e-18
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.3539781957948793
+      ]
+    ],
+    "order": [
+      "x_tilt",
+      "y_tilt",
+      "focus",
+      "astig_cos",
+      "astig_sin",
+      "spherical"
+    ],
+    "target_indices": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "conventional_seeds": [
+      "2x/R",
+      "2y/R",
+      "sqrt3(2r2-1)",
+      "sqrt6(x2-y2)",
+      "sqrt6(2xy)",
+      "sqrt5(6r4-6r2+1)"
+    ],
+    "metric": "normalized geometric illuminated area",
+    "coordinates": "columns+x, rows+y, OPD exp(+i2piW/lambda), Fourier negative",
+    "units": "nm OPD RMS",
+    "reference_n": 1024
+  },
+  "frozen_sha256": "f2d02f1f79145a2014d4b785af840fd8bb7d1a6ad7bdd950b991f0f651f5b54d",
+  "calibration_identity": null,
+  "counts": {
+    "parents": 100,
+    "acquisitions": 500
+  }
+}

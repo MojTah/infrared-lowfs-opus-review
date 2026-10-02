@@ -1,0 +1,1253 @@
+{
+  "schema_version": 1,
+  "status": "COMPLETE",
+  "source_hash": "648c0bd875c818ed1c06d246213c283b9a2448b194c0ce663b26176550a342cb",
+  "config_hash": "371987b7002721356bd12bb67106cf706507413487fa0794cf844af01c7e3540",
+  "measurement_hash": "cf9178fcfc4a35605dce9a4104da7e8c7ab0b0a5e564fe05b8bd0d5383b5545e",
+  "basis": {
+    "mu": [
+      1.0418494663316053e-16,
+      -2.1446874224478885e-18,
+      -0.17385896921791663,
+      0.00014381770579226892,
+      2.302606127551612e-19,
+      -0.35256493816839746
+    ],
+    "transform": [
+      [
+        1.0542449004506746,
+        9.737568497509444e-19,
+        -2.469840620634878e-16,
+        -1.881505431726542e-16,
+        -1.8363481070886675e-16,
+        -1.758720038862528e-16
+      ],
+      [
+        0.0,
+        1.0543825187811364,
+        -2.373509884872719e-16,
+        1.4306783285398947e-16,
+        -1.5788529797614197e-16,
+        -2.62645945151722e-16
+      ],
+      [
+        0.0,
+        0.0,
+        1.236142681520455,
+        -0.00023171320610193842,
+        -3.3199493758269623e-18,
+        0.3394791673732857
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.1393075618323802,
+        -2.148245850756972e-19,
+        -0.0009080048880061233
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.1390198247656274,
+        -1.6969862677000888e-18
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.3539781957948793
+      ]
+    ],
+    "order": [
+      "x_tilt",
+      "y_tilt",
+      "focus",
+      "astig_cos",
+      "astig_sin",
+      "spherical"
+    ],
+    "target_indices": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "conventional_seeds": [
+      "2x/R",
+      "2y/R",
+      "sqrt3(2r2-1)",
+      "sqrt6(x2-y2)",
+      "sqrt6(2xy)",
+      "sqrt5(6r4-6r2+1)"
+    ],
+    "metric": "normalized geometric illuminated area",
+    "coordinates": "columns+x, rows+y, OPD exp(+i2piW/lambda), Fourier negative",
+    "units": "nm OPD RMS",
+    "reference_n": 1024
+  },
+  "acquisitions_per_parent": 8,
+  "shards": [
+    {
+      "path": "parent_0000.npz",
+      "sha256": "afd83cbb1c3000b53541c8fc34ff6eeb787ab16bd6d5404e012d6cafc494bbb4",
+      "parent_id": "shift-diagnostic-0000",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 1293368979,
+      "calibration_seed": 3571941173,
+      "noise_root_seed": 3271410917,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0001.npz",
+      "sha256": "7fcbbca8b23587db099d2b6776e97243cac3919b35134808f0f917b4de8a1e93",
+      "parent_id": "shift-diagnostic-0001",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 426667714,
+      "calibration_seed": 2164403216,
+      "noise_root_seed": 1245485256,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0002.npz",
+      "sha256": "835ede448ae52c302055fe4ecf374404f969a439bd5c9f70dc5ee75f3a192cd1",
+      "parent_id": "shift-diagnostic-0002",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 2599499361,
+      "calibration_seed": 2193408685,
+      "noise_root_seed": 2237998771,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0003.npz",
+      "sha256": "05b23a826e3425a70214cc145035f39b53615cd8b4fe29bcc61225827d201fe7",
+      "parent_id": "shift-diagnostic-0003",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 1554367275,
+      "calibration_seed": 3723389177,
+      "noise_root_seed": 1788021370,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0004.npz",
+      "sha256": "44f5f8630ae26f3c93201a49593fa8646952df6246cec1577c3422e403352b12",
+      "parent_id": "shift-diagnostic-0004",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 309571108,
+      "calibration_seed": 418175896,
+      "noise_root_seed": 2431008573,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0005.npz",
+      "sha256": "7c8be44847e74bfdef147f6547bd399f9a283fc4d02b241b0b8302caaf6218bf",
+      "parent_id": "shift-diagnostic-0005",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 1433229118,
+      "calibration_seed": 3187364656,
+      "noise_root_seed": 3022408089,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0006.npz",
+      "sha256": "fa6286681d04924ce79ceb31348482d13c8dba242d817288efcddd9144b1f0c8",
+      "parent_id": "shift-diagnostic-0006",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 3359973760,
+      "calibration_seed": 4154685431,
+      "noise_root_seed": 3994488490,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0007.npz",
+      "sha256": "4f423ddaa2e78ca75d440a222bb2b149dc2e22748552ed108b08dfd8d5647752",
+      "parent_id": "shift-diagnostic-0007",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 3427802079,
+      "calibration_seed": 388374309,
+      "noise_root_seed": 2413030169,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0008.npz",
+      "sha256": "64032560143913f2a8202177f847620ed66a434d62f2435d2663c37791999400",
+      "parent_id": "shift-diagnostic-0008",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 1260290113,
+      "calibration_seed": 754134677,
+      "noise_root_seed": 2867662337,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0009.npz",
+      "sha256": "e296ccc50af1bb2c16f2fa26478ffaf43d17cb591539732d8bf9bd86c4ddb87b",
+      "parent_id": "shift-diagnostic-0009",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 311655403,
+      "calibration_seed": 1228032838,
+      "noise_root_seed": 3160982050,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0010.npz",
+      "sha256": "02eae6468b54329d413f4be99212bcef8479fe7253bad44c8e38add815cbe937",
+      "parent_id": "shift-diagnostic-0010",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 4165334964,
+      "calibration_seed": 2052606386,
+      "noise_root_seed": 4105659851,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0011.npz",
+      "sha256": "4b1d4e869786e8aef59379aca85ea13f9058c41206ae9819083f57f24b0a8715",
+      "parent_id": "shift-diagnostic-0011",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 1925884867,
+      "calibration_seed": 1108847739,
+      "noise_root_seed": 2251264526,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0012.npz",
+      "sha256": "1b971b3516bc4062dab9e4aa39225023fad983474cc3ebf428afee49ef78f07c",
+      "parent_id": "shift-diagnostic-0012",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 695432176,
+      "calibration_seed": 2763806346,
+      "noise_root_seed": 791017182,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0013.npz",
+      "sha256": "c923ebcd5f8f4d591c5a90166078a75c102fca0dc4c31f15b4cfd1fc218c2608",
+      "parent_id": "shift-diagnostic-0013",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 201006077,
+      "calibration_seed": 2648556757,
+      "noise_root_seed": 3240055969,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0014.npz",
+      "sha256": "03fbf2fe12ee706b3f457b68aba75ac74e3065a87a7a35f8f7ac7a03b9ce4135",
+      "parent_id": "shift-diagnostic-0014",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 2548698431,
+      "calibration_seed": 1782917325,
+      "noise_root_seed": 3995099874,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0015.npz",
+      "sha256": "12eab1367e095425b5f38adfae672ebd9a98e79a8b5d12b636a62842ad81dbbf",
+      "parent_id": "shift-diagnostic-0015",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 2064915454,
+      "calibration_seed": 1423613518,
+      "noise_root_seed": 3631395699,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0016.npz",
+      "sha256": "6ec83bd673d07cedbae5407e274cb8f4624a243c81c9fd3f7db880ea180c2c37",
+      "parent_id": "shift-diagnostic-0016",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 285048349,
+      "calibration_seed": 3977711425,
+      "noise_root_seed": 1082194348,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0017.npz",
+      "sha256": "9cbf23011d583b8fe466ddbd81ba705e71a7a763ca21758ae05a756a87a3f61c",
+      "parent_id": "shift-diagnostic-0017",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 2019836311,
+      "calibration_seed": 4188834209,
+      "noise_root_seed": 17434409,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0018.npz",
+      "sha256": "6483abc383f276829637ba17a06e916c1580ec10b6c31663af831152a72723f4",
+      "parent_id": "shift-diagnostic-0018",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 274551139,
+      "calibration_seed": 3805132515,
+      "noise_root_seed": 3117776868,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    },
+    {
+      "path": "parent_0019.npz",
+      "sha256": "1592a5fe8f7438ac5550340ce554a172fff294a846be181aadc41cb5aab43845",
+      "parent_id": "shift-diagnostic-0019",
+      "split": "shifted",
+      "rows": 24,
+      "acquisition_start": 0,
+      "acquisition_stop": 8,
+      "phase_seed": 905187139,
+      "calibration_seed": 4197252205,
+      "noise_root_seed": 4144514948,
+      "condition_order": [
+        [
+          200.0,
+          10.0,
+          1.0
+        ],
+        [
+          200.0,
+          10.0,
+          1.1
+        ],
+        [
+          200.0,
+          6.0,
+          1.0
+        ],
+        [
+          200.0,
+          6.0,
+          1.1
+        ],
+        [
+          300.0,
+          10.0,
+          1.0
+        ],
+        [
+          300.0,
+          10.0,
+          1.1
+        ],
+        [
+          300.0,
+          6.0,
+          1.0
+        ],
+        [
+          300.0,
+          6.0,
+          1.1
+        ]
+      ]
+    }
+  ],
+  "diagnostic_identity": {
+    "schema_version": 1,
+    "sources": {
+      "ledger/analysis/shift_diagnostics.py": "53db8de99a514b6a8d659eb13b6b0bdbcf34c3a8c0e7fb0c9eda4277e2891d17",
+      "ledger/analysis/expanded_campaign/gpu_backend.py": "99f4ad615508f6b53bd80614bd70798dbc79a2a977f0f4f1c94af1e367f6d709",
+      "ledger/analysis/expanded_campaign/gpu_mft.py": "c966ca09b84b57b9d65b66ebbf586c5c46c6d2cef837489cd3f766c3fe3f4c99",
+      "ledger/decisions/paired-shift-diagnostics-2026-10-02.md": "01a4f93afb4a7e1d9f3116005990cb5a346a2230f563131b1932e91758ea849e"
+    },
+    "baseline_frozen_sha256": "f2d02f1f79145a2014d4b785af840fd8bb7d1a6ad7bdd950b991f0f651f5b54d",
+    "architecture_frozen_sha256": "2f1bc2e198a178caeddaff5b045e77bae0ef8be43ece0323b4dba3a7003134a3",
+    "architecture_reporter_sha256": "2086c13701d64785fe8c7423071c6f0b3a7be4dd21622b25f4ef34e835a43a65",
+    "measurement_hash": "cf9178fcfc4a35605dce9a4104da7e8c7ab0b0a5e564fe05b8bd0d5383b5545e",
+    "basis_sha256": "bef87e0053177eb0c68d2cd28223d44d4b2c4357210be7bced0da4afbdafdc62",
+    "engine_source_hash": "648c0bd875c818ed1c06d246213c283b9a2448b194c0ce663b26176550a342cb",
+    "config_hash": "371987b7002721356bd12bb67106cf706507413487fa0794cf844af01c7e3540",
+    "parent_count": 20,
+    "condition_order": [
+      [
+        200.0,
+        10.0,
+        1.0
+      ],
+      [
+        200.0,
+        10.0,
+        1.1
+      ],
+      [
+        200.0,
+        6.0,
+        1.0
+      ],
+      [
+        200.0,
+        6.0,
+        1.1
+      ],
+      [
+        300.0,
+        10.0,
+        1.0
+      ],
+      [
+        300.0,
+        10.0,
+        1.1
+      ],
+      [
+        300.0,
+        6.0,
+        1.0
+      ],
+      [
+        300.0,
+        6.0,
+        1.1
+      ]
+    ],
+    "flux_e": [
+      1000.0,
+      10000.0,
+      100000.0
+    ],
+    "modal_order": [
+      "focus",
+      "astig_cos",
+      "astig_sin",
+      "spherical"
+    ],
+    "seed_entropy": [
+      20260930,
+      2910357,
+      "parent index"
+    ],
+    "scope": "post-baseline development; no untouched confirmation or telescope-performance claim",
+    "inference_calibration": "frozen nominal metadata; no nuisance/residual truth supplied"
+  }
+}
